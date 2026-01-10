@@ -19,22 +19,34 @@ order: 2
   </div>
 
   <!-- Ingredients -->
-  <div class="container">
-    <h2 class="title-ingredient">Ingredients</h2>
+<div class="container">
+  <h2 class="title-ingredient">Ingredients</h2>
 
   <div class="ingredient-quantity">
-      <div class="column-left-ingredient">Eggs</div>
-      <div class="column-right-amount">3</div>
-      <div class="column-left-ingredient">Sugar</div>
-      <div class="column-right-amount">60g</div>
-      <div class="column-left-ingredient">Cake flour</div>
-      <div class="column-right-amount">60g</div>
-      <div class="column-left-ingredient">Unsalted butter</div>
-      <div class="column-right-amount">20g</div>
-      <div class="column-left-ingredient">Milk</div>
-      <div class="column-right-amount">1 tbsp</div>
-    </div>
+    <div class="column-left-ingredient">Eggs</div>
+    <div class="column-right-amount">3</div>
   </div>
+
+  <div class="ingredient-quantity">
+    <div class="column-left-ingredient">Sugar</div>
+    <div class="column-right-amount">60g</div>
+  </div>
+
+  <div class="ingredient-quantity">
+    <div class="column-left-ingredient">Cake flour</div>
+    <div class="column-right-amount">60g</div>
+  </div>
+
+  <div class="ingredient-quantity">
+    <div class="column-left-ingredient">Unsalted butter</div>
+    <div class="column-right-amount">20g</div>
+  </div>
+
+  <div class="ingredient-quantity">
+    <div class="column-left-ingredient">Milk</div>
+    <div class="column-right-amount">1 tbsp</div>
+  </div>
+</div>
 
   <!-- Instructions -->
   <div class="container">
