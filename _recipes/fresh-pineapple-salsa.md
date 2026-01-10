@@ -3,7 +3,7 @@ layout: default
 title: Fresh Pineapple Salsa
 title_en: Fresh Pineapple Salsa
 title_ja: パイナップルサルサ
-genre: sauces
+genre: sauce
 order: 1
 ---
 
