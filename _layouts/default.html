@@ -10,38 +10,39 @@
 
 <body data-genre="{{ page.genre }}">
   <!-- ================= HEADER ================= -->
-  <header class="site-header">
-    <div class="header-inner">
+<header class="site-header">
+  <!-- Language Toggle Row -->
+  <div class="header-toggle-row">
+    <button id="toggle-btn" aria-label="Toggle language">
+      <span class="lang-badge" data-lang="en">🇺🇸 EN</span>
+      <span class="divider">|</span>
+      <span class="lang-badge" data-lang="ja">🇯🇵 日本語</span>
+    </button>
+  </div>
 
-      <!-- Left: Home button (recipes only) -->
-      <div class="header-left">
-        {% if page.collection == "recipes" %}
-          <a href="{{ '/' | relative_url }}" class="home-btn">🏠 Home</a>
-        {% endif %}
-      </div>
-
-      <!-- Center: Page / Site title (JS will localize if needed) -->
-      <div class="header-center">
-        <span class="site-title">
-          {% if page.collection == "recipes" %}
-            {{ page.title_en | default: page.title }}
-          {% else %}
-            {{ site.title }}
-          {% endif %}
-        </span>
-      </div>
-
-      <!-- Right: Language toggle -->
-      <div class="header-right">
-        <button id="toggle-btn" aria-label="Toggle language">
-          <span class="lang-badge" data-lang="en">🇺🇸 EN</span>
-          <span class="divider">|</span>
-          <span class="lang-badge" data-lang="ja">🇯🇵 日本語</span>
-        </button>
-      </div>
-
+  <!-- Main Header Row -->
+  <div class="header-inner">
+    <div class="header-left">
+      {% if page.collection == "recipes" %}
+        <a href="{{ '/' | relative_url }}" class="home-btn">🏠 Home</a>
+      {% endif %}
     </div>
-  </header>
+
+    <div class="header-center">
+      <span class="site-title">
+        {% if page.collection == "recipes" %}
+          {{ page.title_en | default: page.title }}
+        {% else %}
+          {{ site.title }}
+        {% endif %}
+      </span>
+    </div>
+
+    <div class="header-right">
+      <!-- intentionally empty -->
+    </div>
+  </div>
+</header>
 
   <!-- ================= PAGE CONTENT ================= -->
   <main class="page-container">
