@@ -11,7 +11,7 @@ order: 2
 <!-- English -->
 <!-- ===================== -->
 <div class="lang" data-lang="en">
-  <h1 class="title-recipe">Roll Cake Sponge</h1>
+  <h1 class="title-recipe">🍰 Roll Cake Sponge</h1>
 
   <!-- Yield -->
   <div class="container">
@@ -66,7 +66,7 @@ order: 2
 <!-- Japanese -->
 <!-- ===================== -->
 <div class="lang" data-lang="ja">
-  <h1 class="title-recipe">🍌 バナナブレッド</h1>
+  <h1 class="title-recipe">🍰 ロールケーキ生地</h1>
 
   <!-- 仕上がり量 -->
   <div class="container">
