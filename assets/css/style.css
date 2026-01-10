@@ -47,7 +47,7 @@ body {
 }
 
 /* =========================================================
-   Titles
+   Typography
    ========================================================= */
 .title-recipe {
   text-align: center;
@@ -117,7 +117,7 @@ li {
 }
 
 /* =========================================================
-   Sticky Header
+   Sticky Header (Two-Row)
    ========================================================= */
 .site-header {
   position: sticky;
@@ -127,6 +127,16 @@ li {
   border-bottom: 2px solid var(--accent-border);
 }
 
+/* --- Language Toggle Row --- */
+.header-toggle-row {
+  display: flex;
+  justify-content: center;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--accent-border);
+  background-color: var(--bg-page);
+}
+
+/* --- Main Header Row --- */
 .header-inner {
   max-width: 1028px;
   margin: 0 auto;
@@ -175,7 +185,9 @@ li {
   font-size: 0.95rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.25s ease, transform 0.15s ease;
+  transition:
+    background-color 0.25s ease,
+    transform 0.15s ease;
 }
 
 #toggle-btn:hover,
@@ -203,41 +215,4 @@ li {
 
 .lang-badge.active {
   opacity: 1;
-}
-
-/* =========================================================
-   Breadcrumbs
-   ========================================================= */
-.breadcrumb-nav {
-  background-color: var(--bg-page);
-  border-bottom: 1px dashed var(--accent-border);
-}
-
-.breadcrumb-inner {
-  max-width: 1028px;
-  margin: 0 auto;
-  padding: 6px 16px;
-  font-size: 0.85rem;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--text-primary);
-}
-
-.breadcrumb-link {
-  font-weight: bold;
-  text-decoration: none;
-  color: var(--text-primary);
-}
-
-.breadcrumb-link:hover {
-  text-decoration: underline;
-}
-
-.breadcrumb-separator {
-  opacity: 0.6;
-}
-
-.breadcrumb-current {
-  font-weight: bold;
 }
