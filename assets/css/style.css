@@ -131,6 +131,7 @@ li {
 .header-toggle-row {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 6px 0;
   border-bottom: 1px dashed var(--accent-border);
   background-color: var(--bg-page);
