@@ -46,6 +46,11 @@ body {
   display: block;
 }
 
+html[lang="en"] .lang[data-lang="en"],
+html[lang="ja"] .lang[data-lang="ja"] {
+  display: block;
+}
+
 /* =========================================================
    Typography
    ========================================================= */
