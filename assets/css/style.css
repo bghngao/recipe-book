@@ -100,3 +100,35 @@ li {
   flex-basis: 30%;
   text-align: right;
 }
+
+/* Language Toggle – Pill Style */
+#toggle-btn {
+  background-color: #213F84;       /* primary text color */
+  color: #F5F5DD;                  /* page background */
+  border: 2px solid #213F84;
+  border-radius: 999px;            /* pill shape */
+  padding: 8px 20px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  transition: all 0.25s ease;
+}
+
+/* Hover / Focus */
+#toggle-btn:hover,
+#toggle-btn:focus {
+  background-color: #FF007F;       /* recipe title pink */
+  border-color: #FF007F;
+  color: #FFFFFF;
+  outline: none;
+}
+
+/* Active / Pressed */
+#toggle-btn:active {
+  transform: scale(0.96);
+}
+
+/* Center the toggle nicely */
+#toggle-btn {
+  align-self: center;
+}
