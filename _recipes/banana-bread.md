@@ -1,3 +1,11 @@
+---
+layout: default
+title_en: Banana Bread
+title_ja: バナナブレッド
+genre: dessert
+order: 1
+---
+
 <button id="toggle-btn">日本語</button>
 
 <div class="lang active" data-lang="en">
