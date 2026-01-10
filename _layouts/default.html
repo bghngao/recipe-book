@@ -8,6 +8,17 @@
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
+  <header class="site-header">
+    <button id="toggle-btn" aria-label="Toggle language">
+      <span class="lang-badge" data-lang="en">
+        🇺🇸 <span class="lang-text">EN</span>
+      </span>
+      <span class="divider">|</span>
+      <span class="lang-badge" data-lang="ja">
+        🇯🇵 <span class="lang-text">日本語</span>
+      </span>
+    </button>
+  </header>
   <div class="page-container">
     {{ content }}
   </div>
