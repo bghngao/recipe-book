@@ -43,32 +43,6 @@
     </div>
   </header>
 
-  <!-- ================= BREADCRUMBS ================= -->
-  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
-    <div class="breadcrumb-inner">
-
-      <!-- Home (text updated by JS) -->
-      <a href="{{ '/' | relative_url }}" class="breadcrumb-link">
-        Home
-      </a>
-
-      {% if page.collection == "recipes" %}
-        <span class="breadcrumb-separator">›</span>
-
-        <!-- Genre (filled by JS using data-genre) -->
-        <span class="breadcrumb-genre"></span>
-
-        <span class="breadcrumb-separator">›</span>
-
-        <!-- Current page (updated by JS for language) -->
-        <span class="breadcrumb-current">
-          {{ page.title_en | default: page.title }}
-        </span>
-      {% endif %}
-
-    </div>
-  </nav>
-
   <!-- ================= PAGE CONTENT ================= -->
   <main class="page-container">
     {{ content }}
