@@ -1,45 +1,36 @@
 document.addEventListener("DOMContentLoaded", () => {
   const button = document.getElementById("toggle-btn");
   const sections = Array.from(document.querySelectorAll(".lang"));
+  const badges = document.querySelectorAll(".lang-badge");
 
-  if (sections.length === 0) return;
+  if (sections.length === 0 || !button) return;
 
-  // Detect available languages on the page
   const availableLangs = sections.map(s => s.dataset.lang);
-
-  // Detect browser language (en / ja)
   const browserLang = navigator.language.startsWith("ja") ? "ja" : "en";
 
-  // Choose initial language:
-  // 1. Browser language if available
-  // 2. Otherwise first available language
   let currentLang = availableLangs.includes(browserLang)
     ? browserLang
     : availableLangs[0];
 
-  // Apply language visibility
   function applyLanguage(lang) {
     sections.forEach(section => {
-      section.classList.toggle(
-        "active",
-        section.dataset.lang === lang
-      );
+      section.classList.toggle("active", section.dataset.lang === lang);
     });
 
-    // Hide toggle button if only one language exists
+    badges.forEach(badge => {
+      badge.classList.toggle("active", badge.dataset.lang === lang);
+    });
+
+    // Hide toggle if only one language exists
     if (availableLangs.length === 1) {
       button.style.display = "none";
-      return;
     }
-
-    // Update button text
-    button.textContent = lang === "en" ? "日本語" : "English";
   }
 
   // Initial render
   applyLanguage(currentLang);
 
-  // Toggle handler
+  // Toggle language on click
   button.addEventListener("click", () => {
     currentLang = currentLang === "en" ? "ja" : "en";
     applyLanguage(currentLang);
