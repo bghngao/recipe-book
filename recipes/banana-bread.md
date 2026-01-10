@@ -20,6 +20,9 @@
       <li>Bake for 50 minutes.</li>
     </ol>
   </div>
+  <p style="text-align:center;">
+  <a href="../index.html">⬅ Back to Home</a>
+</p>
 </div>
 
 <div class="lang" data-lang="ja">
@@ -42,4 +45,7 @@
       <li>50分焼く。</li>
     </ol>
   </div>
+  <p style="text-align:center;">
+  <a href="../index.html">⬅ 戻る</a>
+</p>
 </div>
