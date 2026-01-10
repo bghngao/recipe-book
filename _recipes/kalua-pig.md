@@ -13,11 +13,6 @@ order: 1
 <div class="lang" data-lang="en">
   <h1 class="title-recipe">🐖 Kalua Pig</h1>
 
-  <!-- Yield -->
-  <div class="container">
-    <p><strong>Yield:</strong> Serves 3–4</p>
-  </div>
-
   <!-- Ingredients -->
   <div class="container">
     <h2 class="title-ingredient">Ingredients</h2>
@@ -53,11 +48,6 @@ order: 1
 <!-- ===================== -->
 <div class="lang" data-lang="ja">
   <h1 class="title-recipe">🐖 カルアポーク</h1>
-
-  <!-- 仕上がり量 -->
-  <div class="container">
-    <p><strong>仕上がり量：</strong> 3〜4人分</p>
-  </div>
 
   <!-- 材料 -->
   <div class="container">
