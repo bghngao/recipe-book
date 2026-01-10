@@ -29,7 +29,7 @@ order: 1
     </ol>
   </div>
   <p style="text-align:center;">
-  <a href="../index.html">⬅ Back to Home</a>
+  <a href="/index.html">⬅ Back to Home</a>
 </p>
 </div>
 
@@ -54,6 +54,6 @@ order: 1
     </ol>
   </div>
   <p style="text-align:center;">
-  <a href="../index.html">⬅ 戻る</a>
+  <a href="/index.html">⬅ 戻る</a>
 </p>
 </div>
