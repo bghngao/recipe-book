@@ -21,15 +21,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  const STORAGE_KEY = "preferredLanguage";
+
   /* =========================================================
      State
      ========================================================= */
   const availableLangs = langSections.map(section => section.dataset.lang);
   const browserLang = navigator.language.startsWith("ja") ? "ja" : "en";
+  const savedLang = localStorage.getItem(STORAGE_KEY);
 
-  let currentLang = availableLangs.includes(browserLang)
-    ? browserLang
-    : availableLangs[0];
+  let currentLang =
+    savedLang && availableLangs.includes(savedLang)
+      ? savedLang
+      : availableLangs.includes(browserLang)
+        ? browserLang
+        : availableLangs[0];
 
   /* =========================================================
      Helpers
@@ -84,11 +90,16 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const applyLanguage = lang => {
+    currentLang = lang;
+    localStorage.setItem(STORAGE_KEY, lang); // ⭐ persist
+
     updateVisibility(lang);
     updateBadges(lang);
     updateHeaderTitle(lang);
     updateBreadcrumbs(lang);
     updateToggleVisibility();
+
+    document.documentElement.lang = lang;
   };
 
   /* =========================================================
@@ -100,7 +111,11 @@ document.addEventListener("DOMContentLoaded", () => {
      Events
      ========================================================= */
   toggleBtn.addEventListener("click", () => {
-    currentLang = currentLang === "en" ? "ja" : "en";
-    applyLanguage(currentLang);
+    const nextLang =
+      currentLang === "en" && availableLangs.includes("ja")
+        ? "ja"
+        : "en";
+
+    applyLanguage(nextLang);
   });
 });
