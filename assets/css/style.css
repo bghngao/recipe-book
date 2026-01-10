@@ -1,77 +1,90 @@
 @charset "UTF-8";
 
-/* Base Styles */
+/* =========================================================
+   Design Tokens
+   ========================================================= */
+:root {
+  --bg-page: #F5F5DD;
+  --text-primary: #213F84;
+  --accent-pink: #FF007F;
+  --accent-border: #C3A97E;
+  --accent-dash: #ADD8E7;
+}
+
+/* =========================================================
+   Base Styles
+   ========================================================= */
 body {
   font-family: "Ubuntu", "Meiryo", sans-serif;
-  background-color: #F5F5DD;
-  color: #213F84;
-  padding: 16px;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
   margin: 0;
+  padding: 16px;
 }
 
-/* Layout Container */
+/* =========================================================
+   Page Layout
+   ========================================================= */
 .page-container {
   max-width: 1028px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+  padding-top: 16px; /* offset for sticky header */
   display: flex;
   flex-direction: column;
-  align-items: center; 
-  padding: 0;
+  align-items: center;
 }
 
-/* Language Sections Visibility */
+/* =========================================================
+   Language Sections
+   ========================================================= */
 .lang {
   display: none;
+  width: 100%;
 }
 
 .lang.active {
   display: block;
-  width: 100%;
 }
 
-/* Toggle Button */
-#toggle-btn {
-  margin: 20px 0;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  text-align: center;
-}
-
-/* Title Styles */
+/* =========================================================
+   Titles
+   ========================================================= */
 .title-recipe {
   text-align: center;
-  color: #FF007F;
-  font-weight: bold;
   font-size: 2rem;
+  font-weight: bold;
+  color: var(--accent-pink);
   margin-bottom: 1rem;
 }
 
 .title-ingredient,
 .title-instruction {
   text-align: center;
-  font-weight: bold;
   font-size: 1.5rem;
+  font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
-/* Content Containers */
+/* =========================================================
+   Content Containers
+   ========================================================= */
 .container {
-  border: 2px solid #C3A97E;
-  border-radius: 8px;
-  padding: 1rem;
-  margin: 1rem auto;
-  max-width: 512px;
   width: 100%;
+  max-width: 512px;
+  margin: 1rem auto;
+  padding: 1rem;
+  border: 2px solid var(--accent-border);
+  border-radius: 8px;
   box-sizing: border-box;
   text-align: left;
 }
 
-/* Lists */
+/* =========================================================
+   Lists
+   ========================================================= */
 ol {
-  line-height: 1.8;
   padding-inline-start: 1.5rem;
+  line-height: 1.8;
 }
 
 ul {
@@ -83,12 +96,14 @@ li {
   padding: 0.15rem;
 }
 
-/* Ingredient Layout */
+/* =========================================================
+   Ingredients Layout
+   ========================================================= */
 .ingredient-quantity {
-  border-bottom: 1px dashed #ADD8E7;
   display: flex;
   justify-content: space-between;
   padding: 0.15rem;
+  border-bottom: 1px dashed var(--accent-dash);
 }
 
 .column-left-ingredient {
@@ -101,108 +116,15 @@ li {
   text-align: right;
 }
 
-/* Language Toggle – Pill Style */
-#toggle-btn {
-  background-color: #213F84;       /* primary text color */
-  color: #F5F5DD;                  /* page background */
-  border: 2px solid #213F84;
-  border-radius: 999px;            /* pill shape */
-  padding: 8px 20px;
-  font-weight: bold;
-  font-size: 0.95rem;
-  letter-spacing: 0.03em;
-  transition: all 0.25s ease;
-}
-
-/* Hover / Focus */
-#toggle-btn:hover,
-#toggle-btn:focus {
-  background-color: #FF007F;       /* recipe title pink */
-  border-color: #FF007F;
-  color: #FFFFFF;
-  outline: none;
-}
-
-/* Active / Pressed */
-#toggle-btn:active {
-  transform: scale(0.96);
-}
-
-/* Center the toggle nicely */
-#toggle-btn {
-  align-self: center;
-}
-
-/* Fixed Sticky Header */
+/* =========================================================
+   Sticky Header
+   ========================================================= */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: #F5F5DD;
-  padding: 10px 16px;
-  display: flex;
-  justify-content: center;
-  border-bottom: 2px solid #C3A97E;
-}
-
-/* Language Toggle Badge Button */
-#toggle-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background-color: #213F84;
-  color: #F5F5DD;
-  border: none;
-  border-radius: 999px;
-  padding: 8px 18px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-/* Divider */
-#toggle-btn .divider {
-  opacity: 0.6;
-}
-
-/* Individual Language Badge */
-.lang-badge {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  opacity: 0.5;
-  transition: opacity 0.2s ease;
-}
-
-/* Active Language Highlight */
-.lang-badge.active {
-  opacity: 1;
-}
-
-/* Hover / Focus */
-#toggle-btn:hover,
-#toggle-btn:focus {
-  background-color: #FF007F;
-  outline: none;
-}
-
-/* Pressed */
-#toggle-btn:active {
-  transform: scale(0.96);
-}
-
-/* Prevent content hiding under sticky header */
-.page-container {
-  padding-top: 16px;
-}
-
-/* Header Layout */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background-color: #F5F5DD;
-  border-bottom: 2px solid #C3A97E;
+  background-color: var(--bg-page);
+  border-bottom: 2px solid var(--accent-border);
 }
 
 .header-inner {
@@ -214,54 +136,67 @@ li {
   align-items: center;
 }
 
+/* =========================================================
+   Header Elements
+   ========================================================= */
+.site-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  color: var(--text-primary);
+}
+
 /* Home Button */
 .home-btn {
-  text-decoration: none;
-  font-weight: bold;
-  color: #213F84;
   padding: 6px 12px;
   border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--text-primary);
   transition: background-color 0.2s ease;
 }
 
 .home-btn:hover {
-  background-color: #C3A97E;
-  color: #213F84;
+  background-color: var(--accent-border);
 }
 
-/* Page / Site Title */
-.site-title {
-  font-weight: bold;
-  font-size: 1.1rem;
-  color: #213F84;
-  text-align: center;
-}
-
-/* Language Toggle Button */
+/* =========================================================
+   Language Toggle (Badge Pill)
+   ========================================================= */
 #toggle-btn {
   display: flex;
   align-items: center;
   gap: 8px;
-  background-color: #213F84;
-  color: #F5F5DD;
+  padding: 6px 16px;
+  background-color: var(--text-primary);
+  color: var(--bg-page);
   border: none;
   border-radius: 999px;
-  padding: 6px 16px;
+  font-size: 0.95rem;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: background-color 0.25s ease, transform 0.15s ease;
 }
 
-#toggle-btn:hover {
-  background-color: #FF007F;
+#toggle-btn:hover,
+#toggle-btn:focus {
+  background-color: var(--accent-pink);
+  outline: none;
 }
 
 #toggle-btn:active {
   transform: scale(0.96);
 }
 
+#toggle-btn .divider {
+  opacity: 0.6;
+}
+
 /* Language Badges */
 .lang-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   opacity: 0.5;
   transition: opacity 0.2s ease;
 }
@@ -270,20 +205,12 @@ li {
   opacity: 1;
 }
 
-/* Divider */
-#toggle-btn .divider {
-  opacity: 0.6;
-}
-
-/* Prevent content hiding under header */
-.page-container {
-  padding-top: 16px;
-}
-
-/* Breadcrumbs */
+/* =========================================================
+   Breadcrumbs
+   ========================================================= */
 .breadcrumb-nav {
-  background-color: #F5F5DD;
-  border-bottom: 1px dashed #C3A97E;
+  background-color: var(--bg-page);
+  border-bottom: 1px dashed var(--accent-border);
 }
 
 .breadcrumb-inner {
@@ -291,16 +218,16 @@ li {
   margin: 0 auto;
   padding: 6px 16px;
   font-size: 0.85rem;
-  color: #213F84;
   display: flex;
   align-items: center;
   gap: 6px;
+  color: var(--text-primary);
 }
 
 .breadcrumb-link {
-  text-decoration: none;
-  color: #213F84;
   font-weight: bold;
+  text-decoration: none;
+  color: var(--text-primary);
 }
 
 .breadcrumb-link:hover {
