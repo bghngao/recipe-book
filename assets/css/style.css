@@ -279,3 +279,38 @@ li {
 .page-container {
   padding-top: 16px;
 }
+
+/* Breadcrumbs */
+.breadcrumb-nav {
+  background-color: #F5F5DD;
+  border-bottom: 1px dashed #C3A97E;
+}
+
+.breadcrumb-inner {
+  max-width: 1028px;
+  margin: 0 auto;
+  padding: 6px 16px;
+  font-size: 0.85rem;
+  color: #213F84;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.breadcrumb-link {
+  text-decoration: none;
+  color: #213F84;
+  font-weight: bold;
+}
+
+.breadcrumb-link:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-separator {
+  opacity: 0.6;
+}
+
+.breadcrumb-current {
+  font-weight: bold;
+}
