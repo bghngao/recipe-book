@@ -1,3 +1,6 @@
 title: Family Recipe Book
-description: Recipes shared with friends and family
-markdown: kramdown
+
+collections:
+  recipes:
+    output: true
+    permalink: /recipes/:name/
