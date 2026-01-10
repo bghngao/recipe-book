@@ -22,7 +22,7 @@ order: 1
   <div class="container">
     <h2 class="title-ingredient">Ingredients</h2>
 
-    <div class="ingredient-quantity">
+  <div class="ingredient-quantity">
       <div class="column-left-ingredient">Ripe bananas</div>
       <div class="column-right-amount">3</div>
     </div>
@@ -54,7 +54,7 @@ order: 1
   <div class="container">
     <h2 class="title-ingredient">材料</h2>
 
-    <div class="ingredient-quantity">
+  <div class="ingredient-quantity">
       <div class="column-left-ingredient">熟したバナナ</div>
       <div class="column-right-amount">3本</div>
     </div>
