@@ -11,37 +11,39 @@ order: 1
 <!-- English -->
 <!-- ===================== -->
 <div class="lang" data-lang="en">
-  <h1 class="title-recipe">Kalua Pig</h1>
+  <h1 class="title-recipe">🐖 Kalua Pig</h1>
 
+  <!-- Yield -->
+  <div class="container">
+    <p><strong>Yield:</strong> Serves 3–4</p>
+  </div>
 
   <!-- Ingredients -->
-<div class="container">
-  <h2 class="title-ingredient">Ingredients</h2>
-
-  <div class="ingredient-quantity">
-    <div class="column-left-ingredient">Pork Butt</div>
-    <div class="column-right-amount">450g</div>
-  </div>
-
-  <div class="ingredient-quantity">
-    <div class="column-left-ingredient">'Alaea Salt</div>
-    <div class="column-right-amount">9.25g</div>
-  </div>
-
-  <div class="ingredient-quantity">
-    <div class="column-left-ingredient">Liquid Smoke</div>
-    <div class="column-right-amount">3.75mL</div>
+  <div class="container">
+    <h2 class="title-ingredient">Ingredients</h2>
+    <div class="ingredient-quantity">
+      <div class="column-left-ingredient">Pork butt</div>
+      <div class="column-right-amount">450g</div>
+    </div>
+    <div class="ingredient-quantity">
+      <div class="column-left-ingredient">ʻAlaea salt</div>
+      <div class="column-right-amount">9.25g</div>
+    </div>
+    <div class="ingredient-quantity">
+      <div class="column-left-ingredient">Liquid smoke</div>
+      <div class="column-right-amount">3.75mL</div>
+    </div>
   </div>
 
   <!-- Instructions -->
   <div class="container">
     <h2 class="title-instruction">Instructions</h2>
     <ol>
-          <li>Preheat oven to 165°C.</li>
-          <li>Rub pork with liquid smoke and 'Alaea Salt.</li>
-          <li>Wrap pork in foil and seal tightly.</li>
-          <li>Place foil packet in baking pan (to prevent drippings from getting on your oven) and bake for 5 hours.</li>
-          <li>Shred pork and serve.</li>
+      <li>Preheat the oven to 165°C.</li>
+      <li>Rub the pork with liquid smoke and ʻAlaea salt.</li>
+      <li>Wrap pork in foil and seal tightly.</li>
+      <li>Place foil packet in baking pan (to prevent drippings from getting on your oven) and bake for 5 hours.</li>
+      <li>Shred the pork and serve.</li>
     </ol>
   </div>
 </div>
@@ -50,36 +52,39 @@ order: 1
 <!-- Japanese -->
 <!-- ===================== -->
 <div class="lang" data-lang="ja">
-  <h1 class="title-recipe">カルアポーク</h1>
+  <h1 class="title-recipe">🐖 カルアポーク</h1>
+
+  <!-- 仕上がり量 -->
+  <div class="container">
+    <p><strong>仕上がり量：</strong> 3〜4人分</p>
+  </div>
 
   <!-- 材料 -->
-<div class="container">
-  <h2 class="title-ingredient">材料</h2>
-
-  <div class="ingredient-quantity">
-    <div class="column-left-ingredient">豚肩ロース（ブロック）</div>
-    <div class="column-right-amount">450g</div>
-  </div>
-
-  <div class="ingredient-quantity">
-    <div class="column-left-ingredient">アラエアシーソルト</div>
-    <div class="column-right-amount">9.25g</div>
-  </div>
-
-  <div class="ingredient-quantity">
-    <div class="column-left-ingredient">スモークリキッド（くん液）</div>
-    <div class="column-right-amount">3.75mL</div>
+  <div class="container">
+    <h2 class="title-ingredient">材料</h2>
+    <div class="ingredient-quantity">
+      <div class="column-left-ingredient">豚肩ロース（ブロック）</div>
+      <div class="column-right-amount">450g</div>
+    </div>
+    <div class="ingredient-quantity">
+      <div class="column-left-ingredient">アラエアシーソルト</div>
+      <div class="column-right-amount">9.25g</div>
+    </div>
+    <div class="ingredient-quantity">
+      <div class="column-left-ingredient">スモークリキッド（くん液）</div>
+      <div class="column-right-amount">3.75mL</div>
+    </div>
   </div>
 
   <!-- 作り方 -->
   <div class="container">
     <h2 class="title-instruction">作り方</h2>
     <ol>
-          <li>オーブンを165℃に予熱する。</li>
-          <li>豚肉にリキッドスモークとアラエアソルトをすり込む。</li>
-          <li>豚肉をアルミホイルで包み、しっかり密閉する。</li>
-          <li>アルミホイルで包んだ豚肉を天板（オーブン内の汚れ防止用）にのせ、165℃のオーブンで5時間焼く。</li>
-          <li>豚肉をほぐして盛り付ける。</li>
+      <li>オーブンを165℃に予熱する。</li>
+      <li>豚肉にリキッドスモークとアラエアソルトをすり込む。</li>
+      <li>豚肉をアルミホイルで包み、しっかり密閉する。</li>
+      <li>アルミホイルで包んだ豚肉を天板（オーブン内の汚れ防止用）にのせ、165℃のオーブンで5時間焼く。</li>
+      <li>豚肉をほぐして盛り付ける。</li>
     </ol>
   </div>
 </div>
