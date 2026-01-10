@@ -7,15 +7,20 @@
 
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
+
 <body data-genre="{{ page.genre }}">
+  <!-- ================= HEADER ================= -->
   <header class="site-header">
     <div class="header-inner">
+
+      <!-- Left: Home button (recipes only) -->
       <div class="header-left">
         {% if page.collection == "recipes" %}
           <a href="{{ '/' | relative_url }}" class="home-btn">🏠 Home</a>
         {% endif %}
       </div>
 
+      <!-- Center: Page / Site title (JS will localize if needed) -->
       <div class="header-center">
         <span class="site-title">
           {% if page.collection == "recipes" %}
@@ -26,6 +31,7 @@
         </span>
       </div>
 
+      <!-- Right: Language toggle -->
       <div class="header-right">
         <button id="toggle-btn" aria-label="Toggle language">
           <span class="lang-badge" data-lang="en">🇺🇸 EN</span>
@@ -33,41 +39,42 @@
           <span class="lang-badge" data-lang="ja">🇯🇵 日本語</span>
         </button>
       </div>
+
     </div>
   </header>
 
+  <!-- ================= BREADCRUMBS ================= -->
   <nav class="breadcrumb-nav" aria-label="Breadcrumb">
-  <div class="breadcrumb-inner">
-    <a href="{{ '/' | relative_url }}" class="breadcrumb-link">
-      {% if page.lang == "ja" %}ホーム{% else %}Home{% endif %}
-    </a>
+    <div class="breadcrumb-inner">
 
-    {% if page.collection == "recipes" %}
-      <span class="breadcrumb-separator">›</span>
+      <!-- Home (text updated by JS) -->
+      <a href="{{ '/' | relative_url }}" class="breadcrumb-link">
+        Home
+      </a>
 
-      <span class="breadcrumb-genre">
-        {% case page.genre %}
-          {% when "main" %}
-            {% if page.lang == "ja" %}メイン料理{% else %}Main Dishes{% endif %}
-          {% when "dessert" %}
-            {% if page.lang == "ja" %}デザート{% else %}Desserts{% endif %}
-          {% when "sauce" %}
-            {% if page.lang == "ja" %}ソース{% else %}Sauces{% endif %}
-        {% endcase %}
-      </span>
+      {% if page.collection == "recipes" %}
+        <span class="breadcrumb-separator">›</span>
 
-      <span class="breadcrumb-separator">›</span>
-      <span class="breadcrumb-current">
-        {{ page.title_en | default: page.title }}
-      </span>
-    {% endif %}
-  </div>
-</nav>
-  
-  <div class="page-container">
+        <!-- Genre (filled by JS using data-genre) -->
+        <span class="breadcrumb-genre"></span>
+
+        <span class="breadcrumb-separator">›</span>
+
+        <!-- Current page (updated by JS for language) -->
+        <span class="breadcrumb-current">
+          {{ page.title_en | default: page.title }}
+        </span>
+      {% endif %}
+
+    </div>
+  </nav>
+
+  <!-- ================= PAGE CONTENT ================= -->
+  <main class="page-container">
     {{ content }}
-  </div>
+  </main>
 
+  <!-- ================= SCRIPTS ================= -->
   <script src="{{ '/assets/js/lang-toggle.js' | relative_url }}"></script>
 </body>
 </html>
