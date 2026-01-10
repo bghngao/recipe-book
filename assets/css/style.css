@@ -132,3 +132,66 @@ li {
 #toggle-btn {
   align-self: center;
 }
+
+/* Fixed Sticky Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #F5F5DD;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid #C3A97E;
+}
+
+/* Language Toggle Badge Button */
+#toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #213F84;
+  color: #F5F5DD;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Divider */
+#toggle-btn .divider {
+  opacity: 0.6;
+}
+
+/* Individual Language Badge */
+.lang-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+
+/* Active Language Highlight */
+.lang-badge.active {
+  opacity: 1;
+}
+
+/* Hover / Focus */
+#toggle-btn:hover,
+#toggle-btn:focus {
+  background-color: #FF007F;
+  outline: none;
+}
+
+/* Pressed */
+#toggle-btn:active {
+  transform: scale(0.96);
+}
+
+/* Prevent content hiding under sticky header */
+.page-container {
+  padding-top: 16px;
+}
