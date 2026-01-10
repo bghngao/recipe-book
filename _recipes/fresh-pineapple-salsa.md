@@ -4,7 +4,7 @@ title: Fresh Pineapple Salsa
 title_en: Fresh Pineapple Salsa
 title_ja: パイナップルサルサ
 genre: sauces
-order: 
+order: 1
 ---
 
 <!-- ===================== -->
