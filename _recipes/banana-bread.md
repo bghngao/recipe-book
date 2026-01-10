@@ -7,9 +7,18 @@ genre: dessert
 order: 1
 ---
 
+<!-- ===================== -->
+<!-- English -->
+<!-- ===================== -->
 <div class="lang" data-lang="en">
   <h1 class="title-recipe">🍌 Banana Bread</h1>
 
+  <!-- Yield -->
+  <div class="container">
+    <p><strong>Yield:</strong> Makes 1 loaf</p>
+  </div>
+
+  <!-- Ingredients -->
   <div class="container">
     <h2 class="title-ingredient">Ingredients</h2>
 
@@ -19,6 +28,7 @@ order: 1
     </div>
   </div>
 
+  <!-- Instructions -->
   <div class="container">
     <h2 class="title-instruction">Instructions</h2>
     <ol>
@@ -29,9 +39,18 @@ order: 1
   </div>
 </div>
 
+<!-- ===================== -->
+<!-- Japanese -->
+<!-- ===================== -->
 <div class="lang" data-lang="ja">
   <h1 class="title-recipe">🍌 バナナブレッド</h1>
 
+  <!-- 仕上がり量 -->
+  <div class="container">
+    <p><strong>仕上がり量：</strong> 1本分</p>
+  </div>
+
+  <!-- 材料 -->
   <div class="container">
     <h2 class="title-ingredient">材料</h2>
 
@@ -41,6 +60,7 @@ order: 1
     </div>
   </div>
 
+  <!-- 作り方 -->
   <div class="container">
     <h2 class="title-instruction">作り方</h2>
     <ol>
