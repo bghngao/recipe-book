@@ -11,7 +11,7 @@ order: 1
 <!-- English -->
 <!-- ===================== -->
 <div class="lang" data-lang="en">
-  <h1 class="title-recipe">🍌 Banana Bread</h1>
+  <h1 class="title-recipe">Banana Bread</h1>
 
   <!-- Yield -->
   <div class="container">
@@ -43,7 +43,7 @@ order: 1
 <!-- Japanese -->
 <!-- ===================== -->
 <div class="lang" data-lang="ja">
-  <h1 class="title-recipe">🍌 バナナブレッド</h1>
+  <h1 class="title-recipe">バナナブレッド</h1>
 
   <!-- 仕上がり量 -->
   <div class="container">
