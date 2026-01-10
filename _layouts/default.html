@@ -20,29 +20,6 @@
         <span class="lang-badge" data-lang="ja">🇯🇵 日本語</span>
       </button>
     </div>
-
-    <!-- Main Header Row -->
-    <div class="header-inner">
-      <div class="header-left">
-        {% if page.collection == "recipes" %}
-          <a href="{{ '/' | relative_url }}" class="home-btn">Home</a>
-        {% endif %}
-      </div>
-
-      <div class="header-center">
-        <span class="site-title">
-          {% if page.collection == "recipes" %}
-            {{ page.title_en | default: page.title }}
-          {% else %}
-            {{ site.title }}
-          {% endif %}
-        </span>
-      </div>
-
-      <div class="header-right">
-        <!-- intentionally empty -->
-      </div>
-    </div>
   </header>
 
   <!-- ================= BREADCRUMBS ================= -->
