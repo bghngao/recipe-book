@@ -74,22 +74,34 @@ order: 2
   </div>
 
   <!-- 材料 -->
-  <div class="container">
-    <h2 class="title-ingredient">材料</h2>
+<div class="container">
+  <h2 class="title-ingredient">材料</h2>
 
   <div class="ingredient-quantity">
-      <div class="column-left-ingredient">卵</div>
-      <div class="column-right-amount">3個</div>
-      <div class="column-left-ingredient">砂糖</div>
-      <div class="column-right-amount">60g</div>
-      <div class="column-left-ingredient">薄力粉</div>
-      <div class="column-right-amount">60g</div>
-      <div class="column-left-ingredient">無塩バター</div>
-      <div class="column-right-amount">20g</div>
-      <div class="column-left-ingredient">牛乳</div>
-      <div class="column-right-amount">1 tbsp</div>
-    </div>
+    <div class="column-left-ingredient">卵</div>
+    <div class="column-right-amount">3個</div>
   </div>
+
+  <div class="ingredient-quantity">
+    <div class="column-left-ingredient">砂糖</div>
+    <div class="column-right-amount">60g</div>
+  </div>
+
+  <div class="ingredient-quantity">
+    <div class="column-left-ingredient">薄力粉</div>
+    <div class="column-right-amount">60g</div>
+  </div>
+
+  <div class="ingredient-quantity">
+    <div class="column-left-ingredient">無塩バ</div>
+    <div class="column-right-amount">20g</div>
+  </div>
+
+  <div class="ingredient-quantity">
+    <div class="column-left-ingredient">牛乳</div>
+    <div class="column-right-amount">1 tbsp</div>
+  </div>
+</div>
 
   <!-- 作り方 -->
   <div class="container">
