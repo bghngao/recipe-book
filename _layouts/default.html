@@ -35,6 +35,34 @@
       </div>
     </div>
   </header>
+
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="{{ '/' | relative_url }}" class="breadcrumb-link">
+      {% if page.lang == "ja" %}ホーム{% else %}Home{% endif %}
+    </a>
+
+    {% if page.collection == "recipes" %}
+      <span class="breadcrumb-separator">›</span>
+
+      <span class="breadcrumb-genre">
+        {% case page.genre %}
+          {% when "main" %}
+            {% if page.lang == "ja" %}メイン料理{% else %}Main Dishes{% endif %}
+          {% when "dessert" %}
+            {% if page.lang == "ja" %}デザート{% else %}Desserts{% endif %}
+          {% when "sauce" %}
+            {% if page.lang == "ja" %}ソース{% else %}Sauces{% endif %}
+        {% endcase %}
+      </span>
+
+      <span class="breadcrumb-separator">›</span>
+      <span class="breadcrumb-current">
+        {{ page.title_en | default: page.title }}
+      </span>
+    {% endif %}
+  </div>
+</nav>
   
   <div class="page-container">
     {{ content }}
