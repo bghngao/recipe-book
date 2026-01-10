@@ -1,14 +1,13 @@
 ---
 layout: default
+title: Banana Bread
 title_en: Banana Bread
 title_ja: バナナブレッド
 genre: dessert
 order: 1
 ---
 
-<button id="toggle-btn">日本語</button>
-
-<div class="lang active" data-lang="en">
+<div class="lang" data-lang="en">
   <h1 class="title-recipe">🍌 Banana Bread</h1>
 
   <div class="container">
@@ -28,9 +27,6 @@ order: 1
       <li>Bake for 50 minutes.</li>
     </ol>
   </div>
-  <p style="text-align:center;">
-  <a href="/index.html">⬅ Back to Home</a>
-</p>
 </div>
 
 <div class="lang" data-lang="ja">
@@ -53,7 +49,4 @@ order: 1
       <li>50分焼く。</li>
     </ol>
   </div>
-  <p style="text-align:center;">
-  <a href="/index.html">⬅ 戻る</a>
-</p>
 </div>
