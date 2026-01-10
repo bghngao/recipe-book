@@ -32,6 +32,40 @@ if (titleEl) {
   const h1 = activeSection?.querySelector("h1");
   if (h1) titleEl.textContent = h1.textContent;
 }
+    // Update breadcrumb text when language changes
+const breadcrumbCurrent = document.querySelector(".breadcrumb-current");
+if (breadcrumbCurrent) {
+  const activeSection = sections.find(s => s.dataset.lang === lang);
+  const h1 = activeSection?.querySelector("h1");
+  if (h1) breadcrumbCurrent.textContent = h1.textContent;
+}
+
+const breadcrumbHome = document.querySelector(".breadcrumb-link");
+if (breadcrumbHome) {
+  breadcrumbHome.textContent = lang === "ja" ? "ホーム" : "Home";
+}
+
+const breadcrumbGenre = document.querySelector(".breadcrumb-genre");
+if (breadcrumbGenre) {
+  const genreMap = {
+    en: {
+      main: "Main Dishes",
+      dessert: "Desserts",
+      sauce: "Sauces"
+    },
+    ja: {
+      main: "メイン料理",
+      dessert: "デザート",
+      sauce: "ソース"
+    }
+  };
+
+  const pageGenre = document.body.dataset.genre;
+  if (pageGenre && genreMap[lang][pageGenre]) {
+    breadcrumbGenre.textContent = genreMap[lang][pageGenre];
+  }
+}
+
 
   }
 
