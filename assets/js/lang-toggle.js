@@ -1,53 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const button = document.getElementById("toggle-btn");
-  const sections = Array.from(document.querySelectorAll(".lang"));
-  const badges = document.querySelectorAll(".lang-badge");
+  const toggleBtn = document.getElementById("toggle-btn");
+  const langSections = Array.from(document.querySelectorAll(".lang"));
+  const langBadges = Array.from(document.querySelectorAll(".lang-badge"));
 
-  if (sections.length === 0 || !button) return;
+  if (!toggleBtn || langSections.length === 0) return;
 
-  const availableLangs = sections.map(s => s.dataset.lang);
-  const browserLang = navigator.language.startsWith("ja") ? "ja" : "en";
-
-  let currentLang = availableLangs.includes(browserLang)
-    ? browserLang
-    : availableLangs[0];
-
-  function applyLanguage(lang) {
-    sections.forEach(section => {
-      section.classList.toggle("active", section.dataset.lang === lang);
-    });
-
-    badges.forEach(badge => {
-      badge.classList.toggle("active", badge.dataset.lang === lang);
-    });
-
-    // Hide toggle if only one language exists
-    if (availableLangs.length === 1) {
-      button.style.display = "none";
-    }
-    // Update header title if bilingual
-const titleEl = document.querySelector(".site-title");
-if (titleEl) {
-  const activeSection = sections.find(s => s.dataset.lang === lang);
-  const h1 = activeSection?.querySelector("h1");
-  if (h1) titleEl.textContent = h1.textContent;
-}
-    // Update breadcrumb text when language changes
-const breadcrumbCurrent = document.querySelector(".breadcrumb-current");
-if (breadcrumbCurrent) {
-  const activeSection = sections.find(s => s.dataset.lang === lang);
-  const h1 = activeSection?.querySelector("h1");
-  if (h1) breadcrumbCurrent.textContent = h1.textContent;
-}
-
-const breadcrumbHome = document.querySelector(".breadcrumb-link");
-if (breadcrumbHome) {
-  breadcrumbHome.textContent = lang === "ja" ? "ホーム" : "Home";
-}
-
-const breadcrumbGenre = document.querySelector(".breadcrumb-genre");
-if (breadcrumbGenre) {
-  const genreMap = {
+  /* =========================================================
+     Configuration
+     ========================================================= */
+  const GENRE_LABELS = {
     en: {
       main: "Main Dishes",
       dessert: "Desserts",
@@ -60,20 +21,85 @@ if (breadcrumbGenre) {
     }
   };
 
-  const pageGenre = document.body.dataset.genre;
-  if (pageGenre && genreMap[lang][pageGenre]) {
-    breadcrumbGenre.textContent = genreMap[lang][pageGenre];
-  }
-}
+  /* =========================================================
+     State
+     ========================================================= */
+  const availableLangs = langSections.map(section => section.dataset.lang);
+  const browserLang = navigator.language.startsWith("ja") ? "ja" : "en";
 
+  let currentLang = availableLangs.includes(browserLang)
+    ? browserLang
+    : availableLangs[0];
 
-  }
+  /* =========================================================
+     Helpers
+     ========================================================= */
+  const getActiveSection = lang =>
+    langSections.find(section => section.dataset.lang === lang);
 
-  // Initial render
+  const updateVisibility = lang => {
+    langSections.forEach(section => {
+      section.classList.toggle("active", section.dataset.lang === lang);
+    });
+  };
+
+  const updateBadges = lang => {
+    langBadges.forEach(badge => {
+      badge.classList.toggle("active", badge.dataset.lang === lang);
+    });
+  };
+
+  const updateHeaderTitle = lang => {
+    const titleEl = document.querySelector(".site-title");
+    if (!titleEl) return;
+
+    const h1 = getActiveSection(lang)?.querySelector("h1");
+    if (h1) titleEl.textContent = h1.textContent;
+  };
+
+  const updateBreadcrumbs = lang => {
+    const homeEl = document.querySelector(".breadcrumb-link");
+    const currentEl = document.querySelector(".breadcrumb-current");
+    const genreEl = document.querySelector(".breadcrumb-genre");
+
+    if (homeEl) {
+      homeEl.textContent = lang === "ja" ? "ホーム" : "Home";
+    }
+
+    const h1 = getActiveSection(lang)?.querySelector("h1");
+    if (currentEl && h1) {
+      currentEl.textContent = h1.textContent;
+    }
+
+    const pageGenre = document.body.dataset.genre;
+    if (genreEl && pageGenre && GENRE_LABELS[lang]?.[pageGenre]) {
+      genreEl.textContent = GENRE_LABELS[lang][pageGenre];
+    }
+  };
+
+  const updateToggleVisibility = () => {
+    if (availableLangs.length === 1) {
+      toggleBtn.style.display = "none";
+    }
+  };
+
+  const applyLanguage = lang => {
+    updateVisibility(lang);
+    updateBadges(lang);
+    updateHeaderTitle(lang);
+    updateBreadcrumbs(lang);
+    updateToggleVisibility();
+  };
+
+  /* =========================================================
+     Init
+     ========================================================= */
   applyLanguage(currentLang);
 
-  // Toggle language on click
-  button.addEventListener("click", () => {
+  /* =========================================================
+     Events
+     ========================================================= */
+  toggleBtn.addEventListener("click", () => {
     currentLang = currentLang === "en" ? "ja" : "en";
     applyLanguage(currentLang);
   });
