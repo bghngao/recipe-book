@@ -25,6 +25,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (availableLangs.length === 1) {
       button.style.display = "none";
     }
+    // Update header title if bilingual
+const titleEl = document.querySelector(".site-title");
+if (titleEl) {
+  const activeSection = sections.find(s => s.dataset.lang === lang);
+  const h1 = activeSection?.querySelector("h1");
+  if (h1) titleEl.textContent = h1.textContent;
+}
+
   }
 
   // Initial render
