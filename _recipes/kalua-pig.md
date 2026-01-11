@@ -57,11 +57,11 @@ order: 1
       <div class="column-right-amount">450g</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">アラエアシーソルト</div>
+      <div class="column-left-ingredient">岩塩</div>
       <div class="column-right-amount">9.25g</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">スモークリキッド（くん液）</div>
+      <div class="column-left-ingredient">スモークリキッド</div>
       <div class="column-right-amount">3.75mL</div>
     </div>
   </div>
@@ -71,9 +71,9 @@ order: 1
     <h2 class="title-instruction">作り方</h2>
     <ol>
       <li>オーブンを165℃に予熱する。</li>
-      <li>豚肉にリキッドスモークとアラエアソルトをすり込む。</li>
+      <li>豚肉にリキッドスモークと岩塩をすり込む。</li>
       <li>豚肉をアルミホイルで包み、しっかり密閉する。</li>
-      <li>アルミホイルで包んだ豚肉を天板（オーブン内の汚れ防止用）にのせ、165℃のオーブンで5時間焼く。</li>
+      <li>アルミホイルで包んだ豚肉を天板にのせ、165℃のオーブンで5時間焼く。</li>
       <li>豚肉をほぐして盛り付ける。</li>
     </ol>
   </div>
