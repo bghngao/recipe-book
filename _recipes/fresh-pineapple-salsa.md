@@ -96,7 +96,7 @@ order: 1
       <div class="column-left-ingredient">(任意) ハラペーニョ</div>
       <div class="column-right-amount">1個（中）/div>
     </div>
-  </div>
+  
 
   <!-- 作り方 -->
   <div class="container">
