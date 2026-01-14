@@ -64,7 +64,7 @@ order:
       <li>Preheat oven to 180°C</li>
       <li>Butter 9x13-inch (22-33-cm) baking pan, line with parchment paper.</li>
       <li>Mix together sugar, baking soda, salt. Sift in mochiko flour.</li>
-      <li>Add in eggs, milk, coconut milk, butter, vanilla extract.Mix until smooth, then pour into pan.</li>
+      <li>Add in eggs, milk, coconut milk, butter, vanilla extract. Mix until smooth, then pour into pan.</li>
       <li>Bake 50-60 minutes or until top is golden brown.</li>
       <li>Remove from oven and allow to cool for 15-20 minutes.</li>
       <li>Cut into squares and serve</li>
@@ -125,10 +125,10 @@ order:
   <div class="container">
     <h2 class="title-instruction">作り方</h2>
     <ol>
-      <li>Preheat oven to 180°C</li>
+      <li>オーブンを180°Cに予熱する。</li>
       <li>Butter 9x13-inch (22-33-cm) baking pan, line with parchment paper.</li>
       <li>Mix together sugar, baking soda, salt. Sift in mochiko flour.</li>
-      <li>Add in eggs, milk, coconut milk, butter, vanilla extract.Mix until smooth, then pour into pan.</li>
+      <li>Add in eggs, milk, coconut milk, butter, vanilla extract. Mix until smooth, then pour into pan.</li>
       <li>Bake 50-60 minutes or until top is golden brown.</li>
       <li>Remove from oven and allow to cool for 15-20 minutes.</li>
       <li>Cut into squares and serve</li>
