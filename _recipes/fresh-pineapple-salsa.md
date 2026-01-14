@@ -26,7 +26,7 @@ order: 1
     </div>
     <div class="ingredient-quantity">
       <div class="column-left-ingredient">Red onion</div>
-      <div class="column-right-amount">&#189 small, chopped</div>
+      <div class="column-right-amount">1/2 small, chopped</div>
     </div>
     <div class="ingredient-quantity">
       <div class="column-left-ingredient">Lime juice</div>
