@@ -4,7 +4,7 @@ title: Banana Bread
 title_en: Banana Bread
 title_ja: バナナブレッド
 genre: dessert
-order: 1
+order: 
 ---
 
 <!-- ===================== -->
