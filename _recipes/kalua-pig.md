@@ -21,7 +21,7 @@ order:
       <div class="column-right-amount">450g</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">ʻAlaea salt</div>
+      <div class="column-left-ingredient">Sea salt</div>
       <div class="column-right-amount">9.25g</div>
     </div>
     <div class="ingredient-quantity">
@@ -35,7 +35,7 @@ order:
     <h2 class="title-instruction">Instructions</h2>
     <ol>
       <li>Preheat the oven to 165°C.</li>
-      <li>Rub the pork with liquid smoke and ʻAlaea salt.</li>
+      <li>Rub the pork with liquid smoke and sea salt.</li>
       <li>Wrap pork in foil and seal tightly.</li>
       <li>Place foil packet in baking pan (to prevent drippings from getting on your oven) and bake for 5 hours.</li>
       <li>Shred the pork and serve.</li>
