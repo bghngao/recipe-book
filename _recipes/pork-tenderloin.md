@@ -17,7 +17,7 @@ order:
   <div class="container">
     <h2 class="title-ingredient">Ingredients</h2>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">Pork tenderloint</div>
+      <div class="column-left-ingredient">Pork tenderloin</div>
       <div class="column-right-amount">450g</div>
     </div>
     <div class="ingredient-quantity">
@@ -66,7 +66,7 @@ order:
   <div class="container">
     <h2 class="title-instruction">Instructions</h2>
     <ol>
-      <li>(Optional) Marinate pork with salt and pepper for 12-24 hours.</li>
+      <li>Marinate pork with salt and pepper for 12-24 hours.</li>
       <li>Preheat oven to 200°C.</li>
       <li>Line baking sheet with aluminium foil.</li>
       <li>In a bowl, combine garlic, basil, oregano, thyme, parsley, and sage. Set aside.</li>
