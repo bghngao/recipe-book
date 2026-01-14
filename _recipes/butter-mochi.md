@@ -33,11 +33,11 @@ order: 1
       <div class="column-right-amount">3g</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">Eggs</div>
+      <div class="column-left-ingredient">Eggs (room temperature)</div>
       <div class="column-right-amount">4</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">Whole milk</div>
+      <div class="column-left-ingredient">Whole milk (room temperature)</div>
       <div class="column-right-amount">450mL</div>
     </div>
     <div class="ingredient-quantity">
