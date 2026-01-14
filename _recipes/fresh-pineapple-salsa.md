@@ -30,7 +30,7 @@ order: 1
     </div>
     <div class="ingredient-quantity">
       <div class="column-left-ingredient">Lime juice</div>
-      <div class="column-right-amount">3 tbsp (1½ limes)</div>
+      <div class="column-right-amount">3 tbsp</div>
     </div>
     <div class="ingredient-quantity">
       <div class="column-left-ingredient">Sea salt</div>
@@ -89,11 +89,11 @@ order: 1
       <div class="column-right-amount">小さじ1/4</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">(適量) パクチー</div>
+      <div class="column-left-ingredient">（適量）パクチー</div>
       <div class="column-right-amount">60mL</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">（適量） ハラペーニョ</div>
+      <div class="column-left-ingredient">（適量）ハラペーニョ</div>
       <div class="column-right-amount">1個（中）</div>
     </div>
   </div>
