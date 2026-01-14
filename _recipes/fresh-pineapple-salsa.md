@@ -78,22 +78,22 @@ order: 1
     </div>
     <div class="ingredient-quantity">
       <div class="column-left-ingredient">赤たまねぎ</div>
-      <div class="column-right-amount">1/2個（小）、みじん切り</div>
+      <div class="column-right-amount">1/2個（小）</div>
     </div>
     <div class="ingredient-quantity">
       <div class="column-left-ingredient">ライム果汁</div>
-      <div class="column-right-amount">大さじ3（約1.5個分）</div>
+      <div class="column-right-amount">大さじ3</div>
     </div>
     <div class="ingredient-quantity">
       <div class="column-left-ingredient">シーソルト</div>
       <div class="column-right-amount">小さじ1/4</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">(任意) パクチー</div>
-      <div class="column-right-amount">60mL、みじん切り</div>
+      <div class="column-left-ingredient">(適量) パクチー</div>
+      <div class="column-right-amount">60mL</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">(任意) ハラペーニョ</div>
+      <div class="column-left-ingredient">（適量） ハラペーニョ</div>
       <div class="column-right-amount">1個（中）</div>
     </div>
   </div>
@@ -103,8 +103,8 @@ order: 1
     <h2 class="title-instruction">作り方</h2>
     <ol>
       <li>パイナップル、パプリカ、ハラペーニョをグリルで焼き、取り出す。</li>
-      <li>パイナップルを中くらいの大きさに切り、中サイズのボウルに入れる。</li>
-      <li>パプリカの皮と種を取り除き、中くらいに刻む。ハラペーニョは細かく刻み、ボウルに加える。</li>
+      <li>パイナップルを5mmくらいの大きさに切り、ボウルに入れる。</li>
+      <li>パプリカの皮と種を取り除き、3mmくらいに刻む。ハラペーニョは細かく刻み、ボウルに加える。</li>
       <li>玉ねぎ、パクチー、ライム果汁を加え、よく混ぜる。</li>
       <li>塩で味を調える。</li>
     </ol>
