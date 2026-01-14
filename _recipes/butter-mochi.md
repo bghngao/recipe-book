@@ -4,7 +4,7 @@ title: Butter Mochi
 title_en: Butter Mochi
 title_ja: バター餅
 genre: dessert
-order: 1
+order: 
 ---
 
 <!-- ===================== -->
