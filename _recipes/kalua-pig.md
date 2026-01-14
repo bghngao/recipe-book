@@ -4,7 +4,7 @@ title: Kalua Pig
 title_en: Kalua Pig (Hawaiian Pulled Pork)
 title_ja: カルアポーク
 genre: main
-order: 1
+order: 
 ---
 
 <!-- ===================== -->
