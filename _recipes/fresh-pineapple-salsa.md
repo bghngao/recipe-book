@@ -30,15 +30,15 @@ order: 1
     </div>
     <div class="ingredient-quantity">
       <div class="column-left-ingredient">Lime juice</div>
-      <div class="column-right-amount">3 tbsp (1 1/2 lime)</div>
+      <div class="column-right-amount">3 tbsp (1½ limes)</div>
     </div>
     <div class="ingredient-quantity">
       <div class="column-left-ingredient">Sea salt</div>
-      <div class="column-right-amount">1/4 tspn</div>
+      <div class="column-right-amount">1/4 tsp</div>
     </div>
     <div class="ingredient-quantity">
       <div class="column-left-ingredient">(Optional) Fresh cilantro</div>
-      <div class="column-right-amount">1/4 cup chopped</div>
+      <div class="column-right-amount">1/4 cup, chopped</div>
     </div>
     <div class="ingredient-quantity">
       <div class="column-left-ingredient">(Optional) Jalapeño</div>
@@ -51,8 +51,8 @@ order: 1
     <h2 class="title-instruction">Instructions</h2>
     <ol>
       <li>Grill pineapple, pepper, and jalapeño. Remove from grill.</li>
-      <li>Chop pineapple medium. Add to medium sized bowl.</li>
-      <li>Remove pepper skin and seeds. Chop red pepper medium, jalapeño finely. Add to bowl.</li>
+      <li>Chop pineapple into medium pieces and place in a medium bowl.</li>
+      <li>Remove skin and seeds from the pepper. Chop pepper medium, jalapeño finely, and add to bowl.</li>
       <li>Add onion, cilantro, and lime juice. Mix well.</li>
       <li>Season with salt to taste.</li>
     </ol>
@@ -82,11 +82,11 @@ order: 1
     </div>
     <div class="ingredient-quantity">
       <div class="column-left-ingredient">ライム果汁</div>
-      <div class="column-right-amount">大さじ 3 (1.5個)</div>
+      <div class="column-right-amount">大さじ3（約1.5個分）</div>
     </div>
     <div class="ingredient-quantity">
       <div class="column-left-ingredient">シーソルト</div>
-      <div class="column-right-amount">小さじ 1/4</div>
+      <div class="column-right-amount">小さじ1/4</div>
     </div>
     <div class="ingredient-quantity">
       <div class="column-left-ingredient">(任意) パクチー</div>
@@ -94,10 +94,9 @@ order: 1
     </div>
     <div class="ingredient-quantity">
       <div class="column-left-ingredient">(任意) ハラペーニョ</div>
-      <div class="column-right-amount">1個（中</div>
+      <div class="column-right-amount">1個（中）</div>
     </div>
-    </div>
-  
+  </div>
 
   <!-- 作り方 -->
   <div class="container">
