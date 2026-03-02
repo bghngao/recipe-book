@@ -45,7 +45,7 @@ order: 2
   <div class="container">
     <h2 class="title-instruction">Instructions</h2>
     <ol>
-      <li>Combine water, sugar, garlic, chili togther in a bowl. /li>
+      <li>Combine water, sugar, garlic, chili togther in a bowl. </li>
       <li>Add fish sauce and lime/lemon juice. </li>
       <li>Add additional fish sauce, sugar, and/or lime/lemon juice to taste as some people may enjoy saliter/sweeter/acidic.</li>
     </ol>
