@@ -52,3 +52,43 @@ order: 2
 <!-- ===================== -->
 <!-- Japanese -->
 <!-- ===================== -->
+<div class="lang" data-lang="ja">
+  <h1 class="title-recipe">ベトナムヌクマム</h1>
+  <!-- Ingredients -->
+  <div class="container">
+    <h2 class="title-ingredient">材料</h2>
+    <div class="ingredient-quantity">
+      <div class="column-left-ingredient">ナンプラー（魚醤）</div>
+      <div class="column-right-amount">30mL</div>
+    </div>
+    <div class="ingredient-quantity">
+      <div class="column-left-ingredient">お湯</div>
+      <div class="column-right-amount">120mL</div>
+    </div>
+    <div class="ingredient-quantity">
+      <div class="column-left-ingredient">ライムまたはレモン汁</div>
+      <div class="column-right-amount">15mL</div>
+    </div>
+    <div class="ingredient-quantity">
+      <div class="column-left-ingredient">砂糖</div>
+      <div class="column-right-amount">15mL</div>
+    </div>
+    <div class="ingredient-quantity">
+      <div class="column-left-ingredient">にんにく</div>
+      <div class="column-right-amount">1かけ</div>
+    </div>
+    <div class="ingredient-quantity">
+      <div class="column-left-ingredient">鷹の爪（タイチリ）</div>
+      <div class="column-right-amount">1本（みじん切り・種を除く）</div>
+    </div>
+  </div>
+  <!-- Instructions -->
+  <div class="container">
+    <h2 class="title-instruction">作り方</h2>
+    <ol>
+      <li>ボウルにお湯、砂糖、にんにく、チリを合わせる。</li>
+      <li>ナンプラーとライム／レモン汁を加える。</li>
+      <li>お好みに合わせて、ナンプラー・砂糖・ライム／レモン汁を追加して味を調える。塩味・甘味・酸味はお好みで調整してください。</li>
+    </ol>
+  </div>
+</div>
