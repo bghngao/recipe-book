@@ -11,7 +11,7 @@ order: 2
 <!-- English -->
 <!-- ===================== -->
 <div class="lang" data-lang="en">
-  <h1 class="title-recipe">🍍 Fresh Pineapple Salsa</h1>
+  <h1 class="title-recipe">Vietnamese Fish Sauce</h1>
 
   <!-- Ingredients -->
   <div class="container">
