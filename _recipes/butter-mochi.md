@@ -76,16 +76,16 @@ order:
 <!-- Japanese -->
 <!-- ===================== -->
 <div class="lang" data-lang="ja">
-  <h1 class="title-recipe">🍍 パイナップルサルサ</h1>
-
-  <!-- 材料 -->
+  <h1 class="title-recipe">バターモチ</h1>
+  <!-- Ingredients -->
   <div class="container">
+    <h2 class="title-ingredient">材料</h2>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">餅粉</div>
+      <div class="column-left-ingredient">もち粉（モチコ）</div>
       <div class="column-right-amount">450g</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">砂糖（グラニュー糖）</div>
+      <div class="column-left-ingredient">グラニュー糖</div>
       <div class="column-right-amount">300g</div>
     </div>
     <div class="ingredient-quantity">
@@ -93,7 +93,7 @@ order:
       <div class="column-right-amount">8g</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">`塩</div>
+      <div class="column-left-ingredient">塩</div>
       <div class="column-right-amount">3g</div>
     </div>
     <div class="ingredient-quantity">
@@ -101,7 +101,7 @@ order:
       <div class="column-right-amount">4個</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">牛乳（常温）</div>
+      <div class="column-left-ingredient">全乳（常温）</div>
       <div class="column-right-amount">450mL</div>
     </div>
     <div class="ingredient-quantity">
@@ -113,25 +113,24 @@ order:
       <div class="column-right-amount">115g</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">バニラエキス</div>
+      <div class="column-left-ingredient">バニラエッセンス</div>
       <div class="column-right-amount">10mL</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">(適量) ココナッツシュレッド</div>
+      <div class="column-left-ingredient">（お好みで）ココナッツファイン</div>
     </div>
   </div>
-
-  <!-- 作り方 -->
+  <!-- Instructions -->
   <div class="container">
     <h2 class="title-instruction">作り方</h2>
     <ol>
       <li>オーブンを180°Cに予熱する。</li>
-      <li>Butter 9x13-inch (22-33-cm) baking pan, line with parchment paper.</li>
-      <li>Mix together sugar, baking soda, salt. Sift in mochiko flour.</li>
-      <li>Add in eggs, milk, coconut milk, butter, vanilla extract. Mix until smooth, then pour into pan.</li>
-      <li>Bake 50-60 minutes or until top is golden brown.</li>
-      <li>Remove from oven and allow to cool for 15-20 minutes.</li>
-      <li>Cut into squares and serve</li>
+      <li>9×13インチ（22×33cm）のベーキングパンにバターを塗り、クッキングシートを敷く。</li>
+      <li>砂糖、ベーキングパウダー、塩を混ぜ合わせ、もち粉をふるい入れる。</li>
+      <li>卵、牛乳、ココナッツミルク、バター、バニラエッセンスを加え、なめらかになるまで混ぜたらパンに流し込む。</li>
+      <li>表面がきつね色になるまで50〜60分焼く。</li>
+      <li>オーブンから取り出し、15〜20分冷ます。</li>
+      <li>正方形に切り分けて盛り付ける。</li>
     </ol>
   </div>
 </div>
