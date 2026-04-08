@@ -1,60 +1,76 @@
 ---
 layout: default
 title: Fresh Vietnamese Fish Sauce
-title_en: Vietnamese Fish Sauce
-title_ja: ベトナムヌクマム
+title_en: Vietnamese Fish Sauce (Nước Chấm)
+title_ja: ベトナム風ヌクチャム
 genre: sauce
 order: 2
 ---
+
 <!-- ===================== -->
 <!-- English -->
 <!-- ===================== -->
 <div class="lang" data-lang="en">
-  <h1 class="title-recipe">Vietnamese Fish Sauce</h1>
+  <h1 class="title-recipe">🐟 Vietnamese Fish Sauce (Nước Chấm)</h1>
+
+  <!-- Yield -->
+  <div class="container">
+    <p><strong>Yield:</strong> Makes about 180mL &nbsp;|&nbsp; Serves 2–4 as a dipping sauce</p>
+  </div>
+
   <!-- Ingredients -->
   <div class="container">
     <h2 class="title-ingredient">Ingredients</h2>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">Fish Sauce</div>
+      <div class="column-left-ingredient">Fish sauce</div>
       <div class="column-right-amount">30mL</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">Hot Water</div>
+      <div class="column-left-ingredient">Hot water</div>
       <div class="column-right-amount">120mL</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">Lime or Lemon Juice</div>
+      <div class="column-left-ingredient">Lime or lemon juice</div>
       <div class="column-right-amount">15mL</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">Sugar</div>
-      <div class="column-right-amount">15mL</div>
+      <div class="column-left-ingredient">Granulated sugar</div>
+      <div class="column-right-amount">1 tbsp</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">Garlic</div>
+      <div class="column-left-ingredient">Garlic, minced</div>
       <div class="column-right-amount">1 clove</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">Bird's eye chili (Thai Chili)</div>
-      <div class="column-right-amount">1 minced (seeds removed)</div>
-    </div> <!-- ✅ Fixed: added missing closing tag -->
-  </div> <!-- ✅ Fixed: added missing closing container div -->
+      <div class="column-left-ingredient">Bird's eye chili (Thai chili), minced, seeds removed</div>
+      <div class="column-right-amount">1</div>
+    </div>
+  </div>
+
   <!-- Instructions -->
   <div class="container">
     <h2 class="title-instruction">Instructions</h2>
     <ol>
-      <li>Combine water, sugar, garlic, chili together in a bowl.</li> <!-- ✅ Fixed: "togther" → "together" -->
-      <li>Add fish sauce and lime/lemon juice.</li>
-      <li>Add additional fish sauce, sugar, and/or lime/lemon juice to taste as some people may enjoy saltier/sweeter/acidic.</li> <!-- ✅ Fixed: "saliter" → "saltier" -->
+      <li>In a bowl, combine the hot water and sugar. Stir until the sugar dissolves completely.</li>
+      <li>Add the garlic and chili, then stir in the fish sauce and lime or lemon juice.</li>
+      <li>Taste and adjust — add more fish sauce for saltiness, sugar for sweetness, or lime juice for acidity.</li>
+      <li>Serve immediately as a dipping sauce, or store in a sealed jar in the refrigerator for up to 5 days.</li>
     </ol>
   </div>
 </div>
+
 <!-- ===================== -->
 <!-- Japanese -->
 <!-- ===================== -->
 <div class="lang" data-lang="ja">
-  <h1 class="title-recipe">ベトナムヌクマム</h1>
-  <!-- Ingredients -->
+  <h1 class="title-recipe">🐟 ベトナム風ヌクチャム</h1>
+
+  <!-- 仕上がり量 -->
+  <div class="container">
+    <p><strong>仕上がり量：</strong> 約180mL &nbsp;|&nbsp; つけダレとして2〜4人分</p>
+  </div>
+
+  <!-- 材料 -->
   <div class="container">
     <h2 class="title-ingredient">材料</h2>
     <div class="ingredient-quantity">
@@ -70,25 +86,27 @@ order: 2
       <div class="column-right-amount">15mL</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">砂糖</div>
-      <div class="column-right-amount">15mL</div>
+      <div class="column-left-ingredient">グラニュー糖</div>
+      <div class="column-right-amount">大さじ1</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">にんにく</div>
+      <div class="column-left-ingredient">にんにく（みじん切り）</div>
       <div class="column-right-amount">1かけ</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">鷹の爪（タイチリ）</div>
-      <div class="column-right-amount">1本（みじん切り・種を除く）</div>
+      <div class="column-left-ingredient">鷹の爪（みじん切り・種を除く）</div>
+      <div class="column-right-amount">1本</div>
     </div>
   </div>
-  <!-- Instructions -->
+
+  <!-- 作り方 -->
   <div class="container">
     <h2 class="title-instruction">作り方</h2>
     <ol>
-      <li>ボウルにお湯、砂糖、にんにく、チリを合わせる。</li>
-      <li>ナンプラーとライム／レモン汁を加える。</li>
-      <li>お好みに合わせて、ナンプラー・砂糖・ライム／レモン汁を追加して味を調える。塩味・甘味・酸味はお好みで調整してください。</li>
+      <li>ボウルにお湯と砂糖を入れ、砂糖が完全に溶けるまでよく混ぜる。</li>
+      <li>にんにくと鷹の爪を加え、続けてナンプラーとライム（またはレモン）汁を加えて混ぜる。</li>
+      <li>味見をして調整する。塩気はナンプラー、甘みは砂糖、酸味はライム汁を足してお好みに合わせる。</li>
+      <li>すぐにつけダレとして提供する。または密閉容器に入れて冷蔵庫で5日以内保存できる。</li>
     </ol>
   </div>
 </div>
