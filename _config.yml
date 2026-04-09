@@ -8,3 +8,14 @@ collections:
   recipes:
     output: true
     permalink: /recipes/:name/
+    sort_by: order
+
+defaults:
+  - scope:
+      path: ""
+      type: recipes
+    values:
+      layout: default
+
+exclude:
+  - README.md
