@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +42,6 @@
           data-placeholder-ja="レシピを検索…"
           placeholder="Search recipes…"
         >
-        <!-- Dropdown results -->
         <ul id="header-search-results" class="header-search-results" role="listbox" aria-label="Search results" hidden></ul>
       </div>
 
@@ -72,10 +73,6 @@
   </main>
 
   <!-- ================= RECIPE DATA FOR SEARCH ================= -->
-  <!--
-    A JSON index of all recipes, embedded at build time.
-    Used by both the header name-search and the ingredient search on the index page.
-  -->
   <script id="recipe-data" type="application/json">
     [
       {% for recipe in site.recipes %}
