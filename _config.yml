@@ -1,21 +1,6 @@
 title: Family Recipe Book
-description: A bilingual family recipe collection in English and Japanese.
-url: "https://yourusername.github.io"
-baseurl: ""
-lang: en
 
 collections:
   recipes:
     output: true
     permalink: /recipes/:name/
-    sort_by: order
-
-defaults:
-  - scope:
-      path: ""
-      type: recipes
-    values:
-      layout: default
-
-exclude:
-  - README.md

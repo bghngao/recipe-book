@@ -13,11 +13,6 @@ order: 1
 <div class="lang" data-lang="en">
   <h1 class="title-recipe">🍍 Fresh Pineapple Salsa</h1>
 
-  <!-- Yield -->
-  <div class="container">
-    <p><strong>Yield:</strong> Makes about 2 cups &nbsp;|&nbsp; Serves 4–6</p>
-  </div>
-
   <!-- Ingredients -->
   <div class="container">
     <h2 class="title-ingredient">Ingredients</h2>
@@ -31,7 +26,7 @@ order: 1
     </div>
     <div class="ingredient-quantity">
       <div class="column-left-ingredient">Red onion</div>
-      <div class="column-right-amount">1/2 small, finely chopped</div>
+      <div class="column-right-amount">1/2 small, chopped</div>
     </div>
     <div class="ingredient-quantity">
       <div class="column-left-ingredient">Lime juice</div>
@@ -55,11 +50,11 @@ order: 1
   <div class="container">
     <h2 class="title-instruction">Instructions</h2>
     <ol>
-      <li>Grill the pineapple, bell pepper, and jalapeño over medium-high heat until lightly charred on all sides. Remove from grill and set aside to cool slightly.</li>
-      <li>Chop the pineapple into medium pieces and place in a bowl.</li>
-      <li>Remove and discard the skin and seeds from the bell pepper. Chop into medium pieces. Finely chop the jalapeño. Add both to the bowl.</li>
-      <li>Add the onion, cilantro, and lime juice. Mix well.</li>
-      <li>Season with salt to taste. Serve immediately or refrigerate in a sealed container for up to 2 days.</li>
+      <li>Grill pineapple, pepper, and jalapeño. Remove from grill.</li>
+      <li>Chop pineapple into medium pieces and place in a medium bowl.</li>
+      <li>Remove skin and seeds from the pepper. Chop pepper medium, jalapeño finely, and add to bowl.</li>
+      <li>Add onion, cilantro, and lime juice. Mix well.</li>
+      <li>Season with salt to taste.</li>
     </ol>
   </div>
 </div>
@@ -69,11 +64,6 @@ order: 1
 <!-- ===================== -->
 <div class="lang" data-lang="ja">
   <h1 class="title-recipe">🍍 パイナップルサルサ</h1>
-
-  <!-- 仕上がり量 -->
-  <div class="container">
-    <p><strong>仕上がり量：</strong> 約500mL &nbsp;|&nbsp; 4〜6人分</p>
-  </div>
 
   <!-- 材料 -->
   <div class="container">
@@ -87,8 +77,8 @@ order: 1
       <div class="column-right-amount">1個</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">赤玉ねぎ</div>
-      <div class="column-right-amount">1/2個（小）、みじん切り</div>
+      <div class="column-left-ingredient">赤たまねぎ</div>
+      <div class="column-right-amount">1/2個（小）</div>
     </div>
     <div class="ingredient-quantity">
       <div class="column-left-ingredient">ライム果汁</div>
@@ -99,11 +89,11 @@ order: 1
       <div class="column-right-amount">小さじ1/4</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">（お好みで）パクチー</div>
-      <div class="column-right-amount">大さじ4、刻む</div>
+      <div class="column-left-ingredient">（適量）パクチー</div>
+      <div class="column-right-amount">60mL</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">（お好みで）ハラペーニョ</div>
+      <div class="column-left-ingredient">（適量）ハラペーニョ</div>
       <div class="column-right-amount">1個（中）</div>
     </div>
   </div>
@@ -112,11 +102,11 @@ order: 1
   <div class="container">
     <h2 class="title-instruction">作り方</h2>
     <ol>
-      <li>パイナップル、パプリカ、ハラペーニョを中強火のグリルで全面に軽く焦げ目がつくまで焼く。取り出して粗熱を取る。</li>
-      <li>パイナップルを一口大に切り、ボウルに入れる。</li>
-      <li>パプリカの皮と種を取り除き、一口大に切る。ハラペーニョは細かく刻む。両方をボウルに加える。</li>
-      <li>玉ねぎ、パクチー、ライム果汁を加えてよく混ぜる。</li>
-      <li>塩で味を調える。すぐに提供するか、密閉容器に入れて冷蔵庫で2日以内に食べきる。</li>
+      <li>パイナップル、パプリカ、ハラペーニョをグリルで焼き、取り出す。</li>
+      <li>パイナップルを5mmくらいの大きさに切り、ボウルに入れる。</li>
+      <li>パプリカの皮と種を取り除き、3mmくらいに刻む。ハラペーニョは細かく刻み、ボウルに加える。</li>
+      <li>玉ねぎ、パクチー、ライム果汁を加え、よく混ぜる。</li>
+      <li>塩で味を調える。</li>
     </ol>
   </div>
 </div>

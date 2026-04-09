@@ -9,12 +9,6 @@
   --accent-pink: #FF007F;
   --accent-border: #C3A97E;
   --accent-dash: #ADD8E7;
-  --accent-hover: #EAE8C8;
-  --search-bg: rgba(255, 255, 255, 0.55);
-  --search-border: #C3A97E;
-  --search-focus-border: #213F84;
-  --results-bg: #FDFDF0;
-  --results-shadow: 0 4px 16px rgba(33, 63, 132, 0.12);
 }
 
 /* =========================================================
@@ -34,7 +28,7 @@ body {
 .page-container {
   max-width: 1028px;
   margin: 0 auto;
-  padding-top: 16px;
+  padding-top: 16px; /* offset for sticky header */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -128,7 +122,7 @@ li {
 }
 
 /* =========================================================
-   Sticky Header
+   Sticky Header (Two-Row)
    ========================================================= */
 .site-header {
   position: sticky;
@@ -138,34 +132,48 @@ li {
   border-bottom: 2px solid var(--accent-border);
 }
 
+/* --- Language Toggle Row --- */
+.header-toggle-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--accent-border);
+  background-color: var(--bg-page);
+}
+
+/* --- Main Header Row --- */
 .header-inner {
   max-width: 1028px;
   margin: 0 auto;
-  padding: 8px 16px;
+  padding: 10px 16px;
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 12px;
 }
 
 /* =========================================================
-   Site Title (centre of header)
+   Header Elements
    ========================================================= */
-.site-title-link {
-  text-decoration: none;
+.site-title {
+  font-size: 1.1rem;
+  font-weight: bold;
   text-align: center;
+  color: var(--text-primary);
 }
 
-.site-title {
-  font-size: 1rem;
+/* Home Button */
+.home-btn {
+  padding: 6px 12px;
+  border-radius: 999px;
+  text-decoration: none;
   font-weight: bold;
   color: var(--text-primary);
-  white-space: nowrap;
-  transition: color 0.2s ease;
+  transition: background-color 0.2s ease;
 }
 
-.site-title-link:hover .site-title {
-  color: var(--accent-pink);
+.home-btn:hover {
+  background-color: var(--accent-border);
 }
 
 /* =========================================================
@@ -174,18 +182,17 @@ li {
 #toggle-btn {
   display: flex;
   align-items: center;
-  gap: 10px;
-  min-height: 40px;
+  gap: 12px;
+  min-height: 40px; 
   min-width: 40px;
-  padding: 8px 16px;
+  padding: 8px 20px;
   background-color: var(--text-primary);
   color: var(--bg-page);
   border: none;
   border-radius: 999px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  white-space: nowrap;
   transition:
     background-color 0.25s ease,
     transform 0.15s ease;
@@ -202,343 +209,19 @@ li {
 }
 
 #toggle-btn .divider {
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
+/* Language Badges */
 .lang-badge {
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 2px 0;
+  gap: 6px;
+  padding: 4px 2px;
   opacity: 0.5;
   transition: opacity 0.2s ease;
 }
 
 .lang-badge.active {
   opacity: 1;
-}
-
-/* =========================================================
-   Header Search (recipe name, right side)
-   ========================================================= */
-.header-search-wrapper {
-  position: relative;
-  width: 220px;
-}
-
-.header-search-input {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 8px 14px;
-  background-color: var(--search-bg);
-  border: 1.5px solid var(--search-border);
-  border-radius: 999px;
-  font-family: "Ubuntu", "Meiryo", sans-serif;
-  font-size: 0.88rem;
-  color: var(--text-primary);
-  outline: none;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
-  /* remove browser default search clear button styling */
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-.header-search-input::placeholder {
-  color: var(--text-primary);
-  opacity: 0.45;
-}
-
-.header-search-input:focus {
-  border-color: var(--search-focus-border);
-  background-color: #FEFEF5;
-}
-
-/* clear (×) button inside search input */
-.header-search-input::-webkit-search-cancel-button {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 14px;
-  height: 14px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 4l8 8M12 4l-8 8' stroke='%23213F84' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: contain;
-  cursor: pointer;
-  opacity: 0.5;
-}
-
-.header-search-input::-webkit-search-cancel-button:hover {
-  opacity: 1;
-}
-
-/* Dropdown results panel */
-.header-search-results {
-  position: absolute;
-  top: calc(100% + 6px);
-  left: 0;
-  right: 0;
-  background-color: var(--results-bg);
-  border: 1.5px solid var(--accent-border);
-  border-radius: 10px;
-  box-shadow: var(--results-shadow);
-  list-style: none;
-  margin: 0;
-  padding: 4px 0;
-  z-index: 2000;
-  max-height: 280px;
-  overflow-y: auto;
-}
-
-.header-search-results[hidden] {
-  display: none;
-}
-
-.header-search-results li a {
-  display: block;
-  padding: 9px 16px;
-  color: var(--text-primary);
-  text-decoration: none;
-  font-size: 0.9rem;
-  border-bottom: 1px dashed var(--accent-dash);
-  transition: background-color 0.15s ease;
-}
-
-.header-search-results li:last-child a {
-  border-bottom: none;
-}
-
-.header-search-results li a:hover,
-.header-search-results li a:focus {
-  background-color: var(--accent-hover);
-  outline: none;
-}
-
-.header-search-results li a .search-result-genre {
-  display: block;
-  font-size: 0.75rem;
-  opacity: 0.55;
-  margin-top: 1px;
-}
-
-.header-search-no-results {
-  padding: 10px 16px;
-  font-size: 0.88rem;
-  opacity: 0.6;
-  text-align: center;
-}
-
-/* =========================================================
-   Ingredient Search Panel (index page)
-   ========================================================= */
-.ingredient-search-panel {
-  max-width: 512px;
-}
-
-.ingredient-search-row {
-  display: flex;
-  gap: 8px;
-  margin-top: 0.5rem;
-}
-
-.ingredient-search-input {
-  flex: 1;
-  padding: 9px 14px;
-  background-color: var(--search-bg);
-  border: 1.5px solid var(--search-border);
-  border-radius: 999px;
-  font-family: "Ubuntu", "Meiryo", sans-serif;
-  font-size: 0.9rem;
-  color: var(--text-primary);
-  outline: none;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-.ingredient-search-input::placeholder {
-  color: var(--text-primary);
-  opacity: 0.4;
-}
-
-.ingredient-search-input:focus {
-  border-color: var(--search-focus-border);
-  background-color: #FEFEF5;
-}
-
-/* Results list under ingredient search */
-.ingredient-results {
-  list-style: none;
-  margin: 0.75rem 0 0;
-  padding: 0;
-}
-
-.ingredient-results[hidden] {
-  display: none;
-}
-
-.ingredient-results li {
-  padding: 0;
-  border-bottom: 1px dashed var(--accent-dash);
-}
-
-.ingredient-results li:last-child {
-  border-bottom: none;
-}
-
-.ingredient-results li a {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 8px 4px;
-  color: var(--text-primary);
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: background-color 0.15s ease;
-  border-radius: 4px;
-}
-
-.ingredient-results li a:hover {
-  background-color: var(--accent-hover);
-  padding-left: 8px;
-}
-
-.ingredient-results li a .result-genre-tag {
-  font-size: 0.75rem;
-  opacity: 0.55;
-  margin-left: 8px;
-  white-space: nowrap;
-}
-
-.ingredient-empty {
-  margin: 0.75rem 0 0;
-  font-size: 0.9rem;
-  opacity: 0.6;
-  text-align: center;
-}
-
-.ingredient-empty[hidden] {
-  display: none;
-}
-
-/* Matched ingredient chip shown in results */
-.ingredient-match-chip {
-  display: inline-block;
-  font-size: 0.72rem;
-  background-color: var(--accent-dash);
-  color: var(--text-primary);
-  border-radius: 999px;
-  padding: 1px 8px;
-  margin-left: 6px;
-  opacity: 0.85;
-  vertical-align: middle;
-}
-
-/* =========================================================
-   Recipe list on index (used for future name filtering)
-   ========================================================= */
-.recipe-list {
-  margin: 0;
-  padding: 8px;
-}
-
-.recipe-list-item {
-  padding: 0.15rem;
-  transition: opacity 0.2s ease;
-}
-
-.recipe-list-item.hidden {
-  display: none;
-}
-
-/* =========================================================
-   Breadcrumbs
-   ========================================================= */
-.breadcrumb-nav {
-  max-width: 1028px;
-  margin: 8px auto 0;
-  padding: 0 16px;
-}
-
-.breadcrumb-inner {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.85rem;
-  flex-wrap: wrap;
-}
-
-.breadcrumb-link {
-  color: var(--text-primary);
-  text-decoration: none;
-  opacity: 0.7;
-  transition: opacity 0.15s ease;
-}
-
-.breadcrumb-link:hover {
-  opacity: 1;
-  text-decoration: underline;
-}
-
-.breadcrumb-separator {
-  opacity: 0.4;
-}
-
-.breadcrumb-genre {
-  opacity: 0.7;
-}
-
-.breadcrumb-current {
-  font-weight: bold;
-}
-
-/* =========================================================
-   Responsive — collapse search bar on small screens
-   ========================================================= */
-@media (max-width: 600px) {
-  .header-inner {
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto auto;
-    gap: 8px;
-    padding: 8px 12px;
-  }
-
-  /* Toggle stays top-left */
-  #toggle-btn {
-    grid-column: 1;
-    grid-row: 1;
-    font-size: 0.8rem;
-    padding: 6px 12px;
-    gap: 6px;
-  }
-
-  /* Title centre top row */
-  .site-title-link {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  /* Search full width on row 2 */
-  .header-search-wrapper {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    width: 100%;
-  }
-
-  .header-search-input {
-    font-size: 0.95rem; /* easier to tap */
-  }
-
-  body {
-    padding: 10px;
-  }
-}
-
-@media (max-width: 400px) {
-  .title-recipe {
-    font-size: 1.5rem;
-  }
-
-  #toggle-btn .divider,
-  #toggle-btn .lang-badge[data-lang="ja"] {
-    /* On very small screens show only the active badge + divider */
-  }
 }

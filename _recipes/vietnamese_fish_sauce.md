@@ -38,12 +38,12 @@ order: 2
       <div class="column-right-amount">1 tbsp</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">Garlic</div>
-      <div class="column-right-amount">1 clove, minced</div>
+      <div class="column-left-ingredient">Garlic, minced</div>
+      <div class="column-right-amount">1 clove</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">Bird's eye chili</div>
-      <div class="column-right-amount">1, minced, seeds removed</div>
+      <div class="column-left-ingredient">Bird's eye chili (Thai chili), minced, seeds removed</div>
+      <div class="column-right-amount">1</div>
     </div>
   </div>
 
@@ -90,12 +90,12 @@ order: 2
       <div class="column-right-amount">大さじ1</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">にんにく</div>
-      <div class="column-right-amount">1かけ、みじん切り</div>
+      <div class="column-left-ingredient">にんにく（みじん切り）</div>
+      <div class="column-right-amount">1かけ</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">鷹の爪</div>
-      <div class="column-right-amount">1本、みじん切り・種を除く</div>
+      <div class="column-left-ingredient">鷹の爪（みじん切り・種を除く）</div>
+      <div class="column-right-amount">1本</div>
     </div>
   </div>
 
