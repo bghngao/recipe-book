@@ -4,7 +4,7 @@ title: Baked Pork Tenderloin
 title_en: Baked Pork Tenderloin
 title_ja: オーブン焼き豚ヒレ
 genre: main
-order: 
+order: 2
 ---
 
 <!-- ===================== -->
@@ -12,6 +12,11 @@ order:
 <!-- ===================== -->
 <div class="lang" data-lang="en">
   <h1 class="title-recipe">🐖 Baked Pork Tenderloin</h1>
+
+  <!-- Yield -->
+  <div class="container">
+    <p><strong>Yield:</strong> Serves 2 &nbsp;|&nbsp; <strong>Marinate:</strong> 12–24 hours</p>
+  </div>
 
   <!-- Ingredients -->
   <div class="container">
@@ -22,7 +27,7 @@ order:
     </div>
     <div class="ingredient-quantity">
       <div class="column-left-ingredient">Olive oil</div>
-      <div class="column-right-amount">1 tbsp</div>
+      <div class="column-right-amount">1 tbsp, for searing</div>
     </div>
     <div class="ingredient-quantity">
       <div class="column-left-ingredient">Sea salt</div>
@@ -33,7 +38,7 @@ order:
       <div class="column-right-amount">1/4 tsp</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">Butter</div>
+      <div class="column-left-ingredient">Unsalted butter</div>
       <div class="column-right-amount">2 tbsp</div>
     </div>
     <div class="ingredient-quantity">
@@ -66,25 +71,30 @@ order:
   <div class="container">
     <h2 class="title-instruction">Instructions</h2>
     <ol>
-      <li>Marinate pork with salt and pepper for 12-24 hours.</li>
-      <li>Preheat oven to 200°C.</li>
-      <li>Line baking sheet with aluminium foil.</li>
-      <li>In a bowl, combine garlic, basil, oregano, thyme, parsley, and sage. Set aside.</li>
-      <li>In a large frying pan, quickly sear all sides of pork.</li>
-      <li>Transfer to aluminium foil.</li>
-      <li>Coat with herb mix. Add butter on top.</li>
-      <li>Wrap in foil and bake for 20 minutes.</li>
-      <li>Remove from oven and rest for 5 minutes.</li>
-      <li>Slice against grain and serve.</li>
+      <li>Season the pork evenly with salt and pepper. Cover and marinate in the refrigerator for 12–24 hours.</li>
+      <li>Remove the pork from the fridge 30 minutes before cooking to bring it to room temperature. Preheat oven to 200°C.</li>
+      <li>In a small bowl, combine garlic powder, basil, oregano, thyme, parsley, and sage. Set aside.</li>
+      <li>Heat olive oil in a large frying pan over high heat. Sear the pork on all sides until golden brown, about 2 minutes per side.</li>
+      <li>Transfer the pork to a sheet of aluminium foil. Coat all sides with the herb mix, then place butter on top.</li>
+      <li>Wrap tightly in the foil and bake for 20 minutes, or until the internal temperature reaches 63°C.</li>
+      <li>Remove from oven and rest, still wrapped, for 5 minutes.</li>
+      <li>Slice against the grain and serve.</li>
     </ol>
   </div>
 </div>
+
 <!-- ===================== -->
 <!-- Japanese -->
 <!-- ===================== -->
 <div class="lang" data-lang="ja">
   <h1 class="title-recipe">🐖 豚ヒレ肉のオーブン焼き</h1>
-  <!-- Ingredients -->
+
+  <!-- 仕上がり量 -->
+  <div class="container">
+    <p><strong>仕上がり量：</strong> 2人分 &nbsp;|&nbsp; <strong>漬け込み時間：</strong> 12〜24時間</p>
+  </div>
+
+  <!-- 材料 -->
   <div class="container">
     <h2 class="title-ingredient">材料</h2>
     <div class="ingredient-quantity">
@@ -93,7 +103,7 @@ order:
     </div>
     <div class="ingredient-quantity">
       <div class="column-left-ingredient">オリーブオイル</div>
-      <div class="column-right-amount">大さじ1</div>
+      <div class="column-right-amount">大さじ1（焼き用）</div>
     </div>
     <div class="ingredient-quantity">
       <div class="column-left-ingredient">海塩</div>
@@ -104,7 +114,7 @@ order:
       <div class="column-right-amount">小さじ1/4</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">バター</div>
+      <div class="column-left-ingredient">無塩バター</div>
       <div class="column-right-amount">大さじ2</div>
     </div>
     <div class="ingredient-quantity">
@@ -132,20 +142,19 @@ order:
       <div class="column-right-amount">小さじ1/2</div>
     </div>
   </div>
-  <!-- Instructions -->
+
+  <!-- 作り方 -->
   <div class="container">
     <h2 class="title-instruction">作り方</h2>
     <ol>
-      <li>豚肉に塩とこしょうをまぶし、12〜24時間マリネする。</li>
-      <li>オーブンを200°Cに予熱する。</li>
-      <li>天板にアルミホイルを敷く。</li>
-      <li>ボウルにガーリック、バジル、オレガノ、タイム、パセリ、セージを合わせておく。</li>
-      <li>大きめのフライパンで豚肉の全面を強火で素早く焼き付ける。</li>
-      <li>アルミホイルの上に移す。</li>
-      <li>ハーブミックスをまぶし、上にバターをのせる。</li>
-      <li>アルミホイルで包み、20分焼く。</li>
-      <li>オーブンから取り出し、5分休ませる。</li>
-      <li>繊維に逆らって切り分け、盛り付ける。</li>
+      <li>豚肉に塩とこしょうを全体にまぶし、蓋をして冷蔵庫で12〜24時間マリネする。</li>
+      <li>調理の30分前に冷蔵庫から取り出し、常温に戻す。オーブンを200°Cに予熱する。</li>
+      <li>小さなボウルにガーリックパウダー、バジル、オレガノ、タイム、パセリ、セージを合わせておく。</li>
+      <li>大きめのフライパンを強火で熱し、オリーブオイルを加える。豚肉の全面を1面につき約2分ずつ、こんがりと焼き色がつくまで焼き付ける。</li>
+      <li>豚肉をアルミホイルの上に移す。ハーブミックスを全体にまぶし、上にバターをのせる。</li>
+      <li>ホイルでしっかりと包み、200°Cのオーブンで20分焼く。中心温度が63°Cに達したら焼き上がり。</li>
+      <li>オーブンから取り出し、包んだまま5分休ませる。</li>
+      <li>繊維に対して垂直に切り分けて盛り付ける。</li>
     </ol>
   </div>
 </div>
