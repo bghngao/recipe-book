@@ -1,19 +1,15 @@
 /* =============================================================
    recipe-search.js
-   Handles:
-     1. Header name search   — live dropdown on every page
-     2. Ingredient search    — panel on the index page only
-   Both features read from the #recipe-data JSON block that
-   Jekyll embeds at build time in default.html.
+   Single live search bar for static Jekyll pages.
+   Searches recipe titles and ingredient front matter in English/Japanese.
    ============================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
-
-  /* =========================================================
-     0. Load recipe index
-     ========================================================= */
   const dataEl = document.getElementById("recipe-data");
-  if (!dataEl) return;
+  const searchInput = document.getElementById("header-search");
+  const searchResults = document.getElementById("header-search-results");
+
+  if (!dataEl || !searchInput || !searchResults) return;
 
   let recipes = [];
   try {
@@ -23,268 +19,191 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  /* =========================================================
-     Shared helpers
-     ========================================================= */
-
-  /* Current UI language, kept in sync via the languageChanged event */
   let currentLang = document.documentElement.lang || "en";
-
-  document.addEventListener("languageChanged", e => {
-    currentLang = e.detail.lang;
-    /* Re-run any active searches so results flip language */
-    triggerHeaderSearch();
-    triggerIngredientSearch();
-  });
 
   const titleFor = (recipe, lang) =>
     lang === "ja"
-      ? (recipe.title_ja || recipe.title_en)
-      : (recipe.title_en || recipe.title_ja);
+      ? (recipe.title_ja || recipe.title_en || recipe.title)
+      : (recipe.title_en || recipe.title_ja || recipe.title);
 
   const genreLabel = (genre, lang) => {
     const labels = {
       en: { main: "Main Dishes", dessert: "Desserts", sauce: "Sauces" },
-      ja: { main: "メイン料理",  dessert: "デザート",  sauce: "ソース"  }
+      ja: { main: "メイン料理", dessert: "デザート", sauce: "ソース" }
     };
-    return labels[lang]?.[genre] || genre;
+    return labels[lang]?.[genre] || genre || "";
   };
 
-  /* Normalise a string for fuzzy matching:
-     lowercase, strip bracketed notes like (Optional) / （お好みで） */
-  const normalise = str =>
-    str
+  const normalise = value =>
+    String(value || "")
       .toLowerCase()
-      .replace(/\(.*?\)/g, "")   // remove (…)
-      .replace(/（.*?）/g, "")   // remove （…）
+      .replace(/\(.*?\)/g, "")
+      .replace(/（.*?）/g, "")
+      .replace(/\s+/g, " ")
       .trim();
 
-  /* =========================================================
-     1. HEADER NAME SEARCH
-     ========================================================= */
-  const headerInput   = document.getElementById("header-search");
-  const headerResults = document.getElementById("header-search-results");
+  const unique = values => Array.from(new Set(values.filter(Boolean)));
 
-  const triggerHeaderSearch = () => {
-    if (headerInput) runHeaderSearch(headerInput.value);
+  const matchingIngredients = (recipe, query, normalisedQuery) => {
+    const ingredients = unique([
+      ...(recipe.ingredients_en || []),
+      ...(recipe.ingredients_ja || [])
+    ]);
+
+    return ingredients.filter(ingredient => {
+      const raw = String(ingredient || "");
+      return normalise(raw).includes(normalisedQuery) || raw.includes(query);
+    });
   };
 
-  const showHeaderResults = items => {
-    if (!headerResults) return;
-    headerResults.innerHTML = "";
+  const recipeMatches = query => {
+    const trimmedQuery = query.trim();
+    const normalisedQuery = normalise(trimmedQuery);
 
-    if (items.length === 0) {
+    if (!normalisedQuery) return [];
+
+    return recipes
+      .map(recipe => {
+        const titleEn = normalise(recipe.title_en || recipe.title || "");
+        const titleJa = normalise(recipe.title_ja || recipe.title || "");
+        const titleHit = titleEn.includes(normalisedQuery) || titleJa.includes(normalisedQuery);
+        const ingredientHits = matchingIngredients(recipe, trimmedQuery, normalisedQuery);
+
+        if (!titleHit && ingredientHits.length === 0) return null;
+
+        return {
+          recipe,
+          titleHit,
+          ingredientHits: ingredientHits.slice(0, 3)
+        };
+      })
+      .filter(Boolean)
+      .sort((a, b) => {
+        /* Put direct title matches before ingredient-only matches, then alphabetise. */
+        if (a.titleHit !== b.titleHit) return a.titleHit ? -1 : 1;
+        return titleFor(a.recipe, currentLang).localeCompare(titleFor(b.recipe, currentLang), currentLang);
+      });
+  };
+
+  const hideResults = () => {
+    searchResults.hidden = true;
+    searchInput.setAttribute("aria-expanded", "false");
+  };
+
+  const showResults = matches => {
+    searchResults.innerHTML = "";
+
+    if (matches.length === 0) {
       const li = document.createElement("li");
       li.className = "header-search-no-results";
       li.textContent = currentLang === "ja"
-        ? "レシピが見つかりませんでした"
-        : "No recipes found";
-      headerResults.appendChild(li);
+        ? "レシピまたは材料が見つかりませんでした"
+        : "No recipes or ingredients found";
+      searchResults.appendChild(li);
     } else {
-      items.forEach(recipe => {
-        const li  = document.createElement("li");
-        const a   = document.createElement("a");
-        a.href    = recipe.url;
+      matches.forEach(({ recipe, titleHit, ingredientHits }) => {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.href = recipe.url;
         a.setAttribute("role", "option");
 
-        const name  = document.createTextNode(titleFor(recipe, currentLang));
+        const left = document.createElement("span");
+        left.className = "search-result-main";
+
+        const name = document.createElement("span");
+        name.className = "search-result-title";
+        name.textContent = titleFor(recipe, currentLang);
+        left.appendChild(name);
+
+        if (ingredientHits.length > 0) {
+          const chips = document.createElement("span");
+          chips.className = "search-result-chips";
+
+          ingredientHits.forEach(ingredient => {
+            const chip = document.createElement("span");
+            chip.className = "ingredient-match-chip";
+            chip.textContent = ingredient;
+            chips.appendChild(chip);
+          });
+
+          left.appendChild(chips);
+        } else if (titleHit) {
+          const chip = document.createElement("span");
+          chip.className = "recipe-title-match-chip";
+          chip.textContent = currentLang === "ja" ? "レシピ名" : "Recipe name";
+          left.appendChild(chip);
+        }
+
         const genre = document.createElement("span");
         genre.className = "search-result-genre";
         genre.textContent = genreLabel(recipe.genre, currentLang);
 
-        a.appendChild(name);
+        a.appendChild(left);
         a.appendChild(genre);
         li.appendChild(a);
-        headerResults.appendChild(li);
+        searchResults.appendChild(li);
       });
     }
 
-    headerResults.hidden = false;
+    searchResults.hidden = false;
+    searchInput.setAttribute("aria-expanded", "true");
   };
 
-  const hideHeaderResults = () => {
-    if (headerResults) headerResults.hidden = true;
-  };
-
-  const runHeaderSearch = query => {
-    if (!headerInput || !headerResults) return;
-    const q = query.trim().toLowerCase();
-    if (!q) { hideHeaderResults(); return; }
-
-    const matches = recipes.filter(r => {
-      const en = (r.title_en || "").toLowerCase();
-      const ja = (r.title_ja || "").toLowerCase();
-      return en.includes(q) || ja.includes(q);
-    });
-
-    showHeaderResults(matches);
-  };
-
-  if (headerInput) {
-    headerInput.addEventListener("input", e => runHeaderSearch(e.target.value));
-
-    headerInput.addEventListener("keydown", e => {
-      if (e.key === "Escape") {
-        hideHeaderResults();
-        headerInput.value = "";
-      }
-      /* Arrow-key navigation through results */
-      if (!headerResults || headerResults.hidden) return;
-      const links = Array.from(headerResults.querySelectorAll("a"));
-      if (!links.length) return;
-      const focused = headerResults.querySelector("a:focus");
-      const idx     = links.indexOf(focused);
-      if (e.key === "ArrowDown") {
-        e.preventDefault();
-        links[(idx + 1) % links.length].focus();
-      }
-      if (e.key === "ArrowUp") {
-        e.preventDefault();
-        links[(idx - 1 + links.length) % links.length].focus();
-      }
-    });
-
-    /* Close dropdown when clicking outside */
-    document.addEventListener("click", e => {
-      if (!headerInput.contains(e.target) && !headerResults?.contains(e.target)) {
-        hideHeaderResults();
-      }
-    });
-
-    /* Reopen if user clicks back into the filled input */
-    headerInput.addEventListener("focus", () => {
-      if (headerInput.value.trim()) runHeaderSearch(headerInput.value);
-    });
-  }
-
-  /* =========================================================
-     2. INGREDIENT SEARCH (index page only)
-     ========================================================= */
-
-  /* There are two independent inputs — one per language section.
-     Both write to the same shared state so switching language
-     while a search is active preserves the results. */
-
-  const ingInputEn     = document.getElementById("ingredient-search-en");
-  const ingInputJa     = document.getElementById("ingredient-search-ja");
-  const ingResultsEn   = document.getElementById("ingredient-results-en");
-  const ingResultsJa   = document.getElementById("ingredient-results-ja");
-  const ingEmptyEn     = document.getElementById("ingredient-empty-en");
-  const ingEmptyJa     = document.getElementById("ingredient-empty-ja");
-
-  /* Only wire up if the page has the ingredient panel */
-  if (!ingInputEn && !ingInputJa) return;
-
-  let lastIngredientQuery = "";
-
-  const triggerIngredientSearch = () => {
-    if (lastIngredientQuery) runIngredientSearch(lastIngredientQuery);
-  };
-
-  const buildIngredientResults = (matches, lang) => {
-    const resultsList = lang === "ja" ? ingResultsJa  : ingResultsEn;
-    const emptyMsg    = lang === "ja" ? ingEmptyJa    : ingEmptyEn;
-
-    if (!resultsList) return;
-
-    resultsList.innerHTML = "";
-
-    if (matches.length === 0) {
-      resultsList.hidden = true;
-      if (emptyMsg) emptyMsg.hidden = false;
-      return;
-    }
-
-    if (emptyMsg) emptyMsg.hidden = true;
-
-    matches.forEach(({ recipe, matchedIngredients }) => {
-      const li = document.createElement("li");
-      const a  = document.createElement("a");
-      a.href   = recipe.url;
-
-      /* Recipe title */
-      const nameSpan = document.createElement("span");
-      nameSpan.textContent = titleFor(recipe, lang);
-
-      /* Genre tag */
-      const genreTag = document.createElement("span");
-      genreTag.className   = "result-genre-tag";
-      genreTag.textContent = genreLabel(recipe.genre, lang);
-
-      /* Matched ingredient chips — show the matched raw ingredient names */
-      const chipsWrapper = document.createElement("span");
-      chipsWrapper.style.marginLeft = "6px";
-      matchedIngredients.forEach(ing => {
-        const chip = document.createElement("span");
-        chip.className   = "ingredient-match-chip";
-        chip.textContent = ing;
-        chipsWrapper.appendChild(chip);
-      });
-
-      const left = document.createElement("span");
-      left.appendChild(nameSpan);
-      left.appendChild(chipsWrapper);
-
-      a.appendChild(left);
-      a.appendChild(genreTag);
-      li.appendChild(a);
-      resultsList.appendChild(li);
-    });
-
-    resultsList.hidden = false;
-  };
-
-  const runIngredientSearch = query => {
-    lastIngredientQuery = query;
-    const q = normalise(query);
-
+  const runSearch = query => {
+    const q = query.trim();
     if (!q) {
-      [ingResultsEn, ingResultsJa].forEach(el => { if (el) el.hidden = true; });
-      [ingEmptyEn,   ingEmptyJa  ].forEach(el => { if (el) el.hidden = true; });
+      hideResults();
       return;
     }
 
-    /* Build match list once, display for both languages */
-    const matches = [];
-
-    recipes.forEach(recipe => {
-      /* Check English ingredients */
-      const hitEn = (recipe.ingredients_en || []).filter(ing =>
-        normalise(ing).includes(q)
-      );
-      /* Check Japanese ingredients */
-      const hitJa = (recipe.ingredients_ja || []).filter(ing =>
-        ing.includes(query.trim())           /* Japanese: don't lowercase */
-        || normalise(ing).includes(q)
-      );
-
-      const allHits = [...new Set([...hitEn, ...hitJa])];
-      if (allHits.length > 0) {
-        matches.push({ recipe, matchedIngredients: allHits.slice(0, 3) });
-      }
-    });
-
-    buildIngredientResults(matches, "en");
-    buildIngredientResults(matches, "ja");
+    showResults(recipeMatches(q));
   };
 
-  const attachIngredientInput = input => {
-    if (!input) return;
-    input.addEventListener("input", e => runIngredientSearch(e.target.value));
-    input.addEventListener("keydown", e => {
-      if (e.key === "Escape") {
-        input.value = "";
-        runIngredientSearch("");
-      }
-    });
-  };
+  searchInput.addEventListener("input", e => runSearch(e.target.value));
 
-  attachIngredientInput(ingInputEn);
-  attachIngredientInput(ingInputJa);
+  searchInput.addEventListener("focus", () => {
+    if (searchInput.value.trim()) runSearch(searchInput.value);
+  });
 
-  /* Keep the two inputs in sync when the user types in either one */
-  if (ingInputEn && ingInputJa) {
-    ingInputEn.addEventListener("input", () => { ingInputJa.value = ingInputEn.value; });
-    ingInputJa.addEventListener("input", () => { ingInputEn.value = ingInputJa.value; });
-  }
+  searchInput.addEventListener("keydown", e => {
+    if (e.key === "Escape") {
+      searchInput.value = "";
+      hideResults();
+      return;
+    }
+
+    if (searchResults.hidden) return;
+
+    const links = Array.from(searchResults.querySelectorAll("a"));
+    if (!links.length) return;
+
+    const focused = searchResults.querySelector("a:focus");
+    const idx = links.indexOf(focused);
+
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      links[(idx + 1) % links.length].focus();
+    }
+
+    if (e.key === "ArrowUp") {
+      e.preventDefault();
+      links[(idx - 1 + links.length) % links.length].focus();
+    }
+  });
+
+  document.addEventListener("click", e => {
+    if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+      hideResults();
+    }
+  });
+
+  document.addEventListener("languageChanged", e => {
+    currentLang = e.detail.lang;
+    searchInput.placeholder = currentLang === "ja"
+      ? "レシピ名または材料で検索"
+      : "Search recipes or ingredients";
+    searchInput.setAttribute("aria-label", searchInput.placeholder);
+
+    if (searchInput.value.trim()) runSearch(searchInput.value);
+  });
 });

@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const homeBtn = document.querySelector(".home-btn");
 
     if (input) {
-      input.placeholder = lang === "ja" ? "レシピを検索" : "Search recipes";
+      input.placeholder = lang === "ja" ? "レシピ名または材料で検索" : "Search recipes or ingredients";
       input.setAttribute("aria-label", input.placeholder);
     }
 

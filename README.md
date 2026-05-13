@@ -7,8 +7,7 @@ A bilingual static recipe blog built with Jekyll Markdown collections and ready 
 - Recipes live in the `_recipes` collection.
 - Recipe pages are generated as static pages at `/recipes/<recipe-name>/`.
 - English/Japanese language toggle is stored in `localStorage`.
-- Header search finds recipes by name.
-- Home-page ingredient search finds all recipes whose `ingredients_en` or `ingredients_ja` front matter contains the entered ingredient.
+- One shared search bar finds recipes by recipe name or by ingredients from `ingredients_en` / `ingredients_ja` front matter.
 
 ## Add a recipe
 
@@ -31,7 +30,7 @@ ingredients_ja:
 ---
 ```
 
-The ingredient search uses the `ingredients_en` and `ingredients_ja` arrays, so keep those in sync with the displayed ingredient list.
+The combined search uses recipe titles plus the `ingredients_en` and `ingredients_ja` arrays, so keep those arrays in sync with the displayed ingredient list.
 
 ## Run locally
 
