@@ -148,25 +148,19 @@ li {
   margin: 0 auto;
   padding: 10px 16px;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 1fr minmax(260px, 420px) 1fr;
   align-items: center;
 }
 
 /* =========================================================
    Header Elements
    ========================================================= */
-.site-title {
-  font-size: 1.1rem;
-  font-weight: bold;
-  text-align: center;
-  color: var(--text-primary);
-}
-
 /* Home Button */
 .home-btn {
   padding: 6px 12px;
   border-radius: 999px;
   text-decoration: none;
+  font-size: 16pt;
   font-weight: bold;
   color: var(--text-primary);
   transition: background-color 0.2s ease;
@@ -244,8 +238,8 @@ li {
 
 .header-search-wrap {
   position: relative;
-  justify-self: end;
-  width: min(260px, 100%);
+  justify-self: center;
+  width: min(420px, 100%);
 }
 
 .header-search-input {
@@ -267,9 +261,11 @@ li {
 .header-search-results {
   position: absolute;
   top: calc(100% + 6px);
-  right: 0;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
   z-index: 1001;
-  width: min(320px, 90vw);
+  width: min(420px, 90vw);
   max-height: 320px;
   overflow: auto;
   margin: 0;
@@ -329,10 +325,6 @@ li {
     gap: 8px;
   }
 
-  .site-title {
-    order: -1;
-  }
-
   .home-btn,
   .header-search-wrap {
     justify-self: stretch;
@@ -342,6 +334,7 @@ li {
   .header-search-results {
     left: 0;
     right: 0;
+    transform: none;
     width: auto;
   }
 }
