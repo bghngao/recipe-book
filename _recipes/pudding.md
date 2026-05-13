@@ -54,7 +54,7 @@ ingredients_ja:
     </div>
     <div class="ingredient-quantity">
       <div class="column-left-ingredient">Granulated sugar</div>
-      <div class="column-right-amount">63g</div>
+      <div class="column-right-amount">60g</div>
     </div>
   </div>
 
@@ -119,7 +119,7 @@ ingredients_ja:
     </div>
     <div class="ingredient-quantity">
       <div class="column-left-ingredient">グラニュー糖</div>
-      <div class="column-right-amount">63g</div>
+      <div class="column-right-amount">60g</div>
     </div>
   </div>
 
