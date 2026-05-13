@@ -63,6 +63,20 @@ document.addEventListener("DOMContentLoaded", () => {
     if (h1) titleEl.textContent = h1.textContent;
   };
 
+  const updateSearchText = lang => {
+    const input = document.getElementById("header-search");
+    const homeBtn = document.querySelector(".home-btn");
+
+    if (input) {
+      input.placeholder = lang === "ja" ? "レシピを検索" : "Search recipes";
+      input.setAttribute("aria-label", input.placeholder);
+    }
+
+    if (homeBtn) {
+      homeBtn.textContent = lang === "ja" ? "ホーム" : "Home";
+    }
+  };
+
   const updateBreadcrumbs = lang => {
     const homeEl = document.querySelector(".breadcrumb-link");
     const currentEl = document.querySelector(".breadcrumb-current");
@@ -97,9 +111,11 @@ document.addEventListener("DOMContentLoaded", () => {
     updateBadges(lang);
     updateHeaderTitle(lang);
     updateBreadcrumbs(lang);
+    updateSearchText(lang);
     updateToggleVisibility();
 
     document.documentElement.lang = lang;
+    document.dispatchEvent(new CustomEvent("languageChanged", { detail: { lang } }));
   };
 
   /* =========================================================

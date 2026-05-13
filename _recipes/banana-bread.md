@@ -4,7 +4,11 @@ title: Banana Bread
 title_en: Banana Bread
 title_ja: バナナブレッド
 genre: dessert
-order: 
+order:
+ingredients_en:
+  - "Ripe bananas"
+ingredients_ja:
+  - "熟したバナナ"
 ---
 
 <!-- ===================== -->

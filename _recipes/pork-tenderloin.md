@@ -4,7 +4,31 @@ title: Baked Pork Tenderloin
 title_en: Baked Pork Tenderloin
 title_ja: オーブン焼き豚ヒレ
 genre: main
-order: 
+order:
+ingredients_en:
+  - "Pork tenderloin"
+  - "Olive oil"
+  - "Sea salt"
+  - "Black pepper"
+  - "Butter"
+  - "Garlic powder"
+  - "Dried basil"
+  - "Dried oregano"
+  - "Dried thyme"
+  - "Dried parsley"
+  - "Dried sage"
+ingredients_ja:
+  - "豚ヒレ肉"
+  - "オリーブオイル"
+  - "海塩"
+  - "黒こしょう"
+  - "バター"
+  - "ガーリックパウダー"
+  - "乾燥バジル"
+  - "乾燥オレガノ"
+  - "乾燥タイム"
+  - "乾燥パセリ"
+  - "乾燥セージ"
 ---
 
 <!-- ===================== -->

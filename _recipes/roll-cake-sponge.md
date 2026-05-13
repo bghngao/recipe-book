@@ -4,7 +4,19 @@ title: Roll Cake Sponge
 title_en: Roll Cake Sponge
 title_ja: ロールケーキ生地
 genre: dessert
-order: 
+order:
+ingredients_en:
+  - "Eggs"
+  - "Sugar"
+  - "Cake flour"
+  - "Unsalted butter"
+  - "Milk"
+ingredients_ja:
+  - "卵"
+  - "砂糖"
+  - "薄力粉"
+  - "無塩バ"
+  - "牛乳"
 ---
 
 <!-- ===================== -->

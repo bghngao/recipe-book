@@ -4,7 +4,29 @@ title: Butter Mochi
 title_en: Butter Mochi
 title_ja: バター餅
 genre: dessert
-order: 
+order:
+ingredients_en:
+  - "Mochiko flour"
+  - "Gramulated sugar"
+  - "Baking Powder"
+  - "Salt"
+  - "Eggs (room temperature)"
+  - "Whole milk (room temperature)"
+  - "Coconut milk"
+  - "Butter"
+  - "Vanilla extract"
+  - "(Optional) Coconut shred"
+ingredients_ja:
+  - "もち粉（モチコ）"
+  - "グラニュー糖"
+  - "ベーキングパウダー"
+  - "塩"
+  - "卵（常温）"
+  - "全乳（常温）"
+  - "ココナッツミルク"
+  - "バター"
+  - "バニラエッセンス"
+  - "（お好みで）ココナッツファイン"
 ---
 
 <!-- ===================== -->

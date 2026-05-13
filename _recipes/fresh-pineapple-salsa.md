@@ -5,6 +5,22 @@ title_en: Fresh Pineapple Salsa
 title_ja: パイナップルサルサ
 genre: sauce
 order: 1
+ingredients_en:
+  - "Fresh pineapple"
+  - "Red bell pepper"
+  - "Red onion"
+  - "Lime juice"
+  - "Sea salt"
+  - "(Optional) Fresh cilantro"
+  - "(Optional) Jalapeño"
+ingredients_ja:
+  - "パイナップル"
+  - "赤パプリカ"
+  - "赤たまねぎ"
+  - "ライム果汁"
+  - "シーソルト"
+  - "（適量）パクチー"
+  - "（適量）ハラペーニョ"
 ---
 
 <!-- ===================== -->

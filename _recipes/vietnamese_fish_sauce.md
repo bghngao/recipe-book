@@ -5,6 +5,20 @@ title_en: Vietnamese Fish Sauce (Nước Chấm)
 title_ja: ベトナム風ヌクチャム
 genre: sauce
 order: 2
+ingredients_en:
+  - "Fish sauce"
+  - "Hot water"
+  - "Lime or lemon juice"
+  - "Granulated sugar"
+  - "Garlic, minced"
+  - "Bird's eye chili (Thai chili), minced, seeds removed"
+ingredients_ja:
+  - "ナンプラー（魚醤）"
+  - "お湯"
+  - "ライムまたはレモン汁"
+  - "グラニュー糖"
+  - "にんにく（みじん切り）"
+  - "鷹の爪（みじん切り・種を除く）"
 ---
 
 <!-- ===================== -->
