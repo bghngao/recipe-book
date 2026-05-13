@@ -36,8 +36,6 @@ ingredients_ja:
   <!-- Ingredients -->
   <div class="container">
     <h2 class="title-ingredient">Ingredients</h2>
-    <p>Makes 4</p>
-
     <h3>Crust</h3>
     <div class="ingredient-quantity">
       <div class="column-left-ingredient">Graham cracker crumbs</div>
