@@ -142,32 +142,14 @@ li {
   background-color: var(--bg-page);
 }
 
-/* --- Main Header Row --- */
-.header-inner {
+/* --- Centered Search Row --- */
+.header-search-row {
   max-width: 1028px;
   margin: 0 auto;
   padding: 10px 16px;
-  display: grid;
-  grid-template-columns: 1fr minmax(260px, 420px) 1fr;
+  display: flex;
+  justify-content: center;
   align-items: center;
-}
-
-/* =========================================================
-   Header Elements
-   ========================================================= */
-/* Home Button */
-.home-btn {
-  padding: 6px 12px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-size: 16pt;
-  font-weight: bold;
-  color: var(--text-primary);
-  transition: background-color 0.2s ease;
-}
-
-.home-btn:hover {
-  background-color: var(--accent-border);
 }
 
 /* =========================================================
@@ -320,14 +302,12 @@ li {
 
 
 @media (max-width: 760px) {
-  .header-inner {
-    grid-template-columns: 1fr;
-    gap: 8px;
+  .header-search-row {
+    padding: 10px 12px;
   }
 
-  .home-btn,
   .header-search-wrap {
-    justify-self: stretch;
+    width: 100%;
     text-align: center;
   }
 

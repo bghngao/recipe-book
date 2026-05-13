@@ -65,26 +65,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const updateSearchText = lang => {
     const input = document.getElementById("header-search");
-    const homeBtn = document.querySelector(".home-btn");
-
     if (input) {
       input.placeholder = lang === "ja" ? "レシピ名または材料で検索" : "Search recipes or ingredients";
       input.setAttribute("aria-label", input.placeholder);
     }
-
-    if (homeBtn) {
-      homeBtn.textContent = lang === "ja" ? "ホーム" : "Home";
-    }
   };
 
   const updateBreadcrumbs = lang => {
-    const homeEl = document.querySelector(".breadcrumb-link");
     const currentEl = document.querySelector(".breadcrumb-current");
     const genreEl = document.querySelector(".breadcrumb-genre");
-
-    if (homeEl) {
-      homeEl.textContent = lang === "ja" ? "ホーム" : "Home";
-    }
 
     const h1 = getActiveSection(lang)?.querySelector("h1");
     if (currentEl && h1) {
