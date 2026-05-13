@@ -3,7 +3,7 @@ layout: default
 title: Home
 ---
 
-{% assign genres = "main,dessert,sauce" | split: "," %}
+{% assign genres = "main,dessert,sauce,drink" | split: "," %}
 
 <!-- ================= ENGLISH ================= -->
 <div class="lang" data-lang="en">
@@ -18,6 +18,7 @@ title: Home
             {% when "main" %} 🍝 Main Dishes
             {% when "dessert" %} 🍰 Desserts
             {% when "sauce" %} 🥣 Sauces
+            {% when "drink" %} 🍹 Drinks
           {% endcase %}
         </summary>
 
@@ -48,6 +49,7 @@ title: Home
             {% when "main" %} 🍝 メイン料理
             {% when "dessert" %} 🍰 デザート
             {% when "sauce" %} 🥣 ソース
+            {% when "drink" %} 🍹 ドリンク
           {% endcase %}
         </summary>
 
