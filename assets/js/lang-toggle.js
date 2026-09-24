@@ -48,9 +48,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const availableLangs = langSections.map(section => section.dataset.lang);
   const browserLang = navigator.language.startsWith("ja") ? "ja" : "en";
   const savedLang = localStorage.getItem(STORAGE_KEY);
+  const urlLang = new URL(window.location.href).searchParams.get("lang");
 
   let currentLang =
-    savedLang && availableLangs.includes(savedLang)
+    urlLang && availableLangs.includes(urlLang)
+      ? urlLang
+      : savedLang && availableLangs.includes(savedLang)
       ? savedLang
       : availableLangs.includes(browserLang)
         ? browserLang
@@ -126,6 +129,12 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleBtn.setAttribute("aria-label", UI_LABELS[lang].toggle);
   };
 
+  const updateLanguageUrl = lang => {
+    const url = new URL(window.location.href);
+    url.searchParams.set("lang", lang);
+    window.history.replaceState(null, "", url.toString());
+  };
+
   /*
      English and Japanese are rendered as separate page sections. Switching
      their display state while the reader is partway down a recipe otherwise
@@ -185,6 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateSearchText(lang);
     updateToggleVisibility();
     updateToggleAccessibility(lang);
+    updateLanguageUrl(lang);
 
     document.documentElement.lang = lang;
     document.dispatchEvent(new CustomEvent("languageChanged", { detail: { lang } }));
