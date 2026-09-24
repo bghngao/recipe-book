@@ -115,9 +115,92 @@ li {
    ========================================================= */
 .ingredient-quantity {
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
   padding: 0.15rem;
   border-bottom: 1px dashed var(--accent-dash);
+}
+
+/* =========================================================
+   Mobile Recipe Tools
+   ========================================================= */
+.recipe-tools {
+  width: min(512px, 100%);
+  margin: 1rem auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.wake-lock-control,
+#reset-progress-btn {
+  min-height: 44px;
+  box-sizing: border-box;
+  border: 2px solid var(--text-primary);
+  border-radius: 999px;
+  background: #fffef2;
+  color: var(--text-primary);
+  font: inherit;
+  font-weight: 600;
+}
+
+.wake-lock-control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.875rem;
+  cursor: pointer;
+}
+
+#wake-lock-toggle,
+.recipe-progress-checkbox {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex: 0 0 auto;
+  margin: 0;
+  accent-color: var(--accent-pink);
+  cursor: pointer;
+}
+
+#reset-progress-btn {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.wake-lock-control:focus-within,
+#reset-progress-btn:focus-visible {
+  outline: 3px solid var(--accent-pink);
+  outline-offset: 2px;
+}
+
+.wake-lock-control:has(input:disabled) {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.recipe-progress-checkbox {
+  margin-inline-end: 0.625rem;
+  vertical-align: middle;
+}
+
+.recipe-progress-complete {
+  opacity: 0.7;
+  text-decoration: line-through;
+}
+
+@media (max-width: 520px) {
+  .recipe-tools {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .wake-lock-control,
+  #reset-progress-btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 .column-left-ingredient {

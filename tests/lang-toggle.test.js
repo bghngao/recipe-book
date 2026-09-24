@@ -89,7 +89,8 @@ function loadToggle({
   jaBlockTops = [100, 200, 300],
   enDetails = [],
   jaDetails = [],
-  languages = ["en", "ja"]
+  languages = ["en", "ja"],
+  urlLanguage = null
 } = {}) {
   const toggle = new FakeElement();
   const search = new FakeElement();
@@ -150,6 +151,18 @@ function loadToggle({
     }
   }
 
+  const initialUrl = new URL("https://example.test/recipes/butter-mochi/");
+  if (urlLanguage) initialUrl.searchParams.set("lang", urlLanguage);
+  const window = {
+    history: {
+      replaceState(_state, _title, url) {
+        window.location.href = String(url);
+      }
+    },
+    location: { href: initialUrl.toString() },
+    scrollBy: (x, y) => scrollCalls.push([x, y])
+  };
+
   vm.runInNewContext(script, {
     CustomEvent,
     document,
@@ -158,7 +171,8 @@ function loadToggle({
       setItem: (key, value) => storage.set(key, value)
     },
     navigator: { language: browserLanguage },
-    window: { scrollBy: (x, y) => scrollCalls.push([x, y]) }
+    URL,
+    window
   });
 
   assert.equal(domReadyListeners.length, 1);
@@ -178,7 +192,8 @@ function loadToggle({
     search,
     searchLabel,
     storage,
-    toggle
+    toggle,
+    window
   };
 }
 
@@ -198,6 +213,7 @@ test("initializes from the saved language and translates a drink breadcrumb", ()
   assert.equal(page.toggle.attributes["aria-label"], "英語に切り替える");
   assert.equal(page.document.title, "バターモチ | ファミリーレシピブック");
   assert.equal(page.storage.get("preferredLanguage"), "ja");
+  assert.equal(new URL(page.window.location.href).searchParams.get("lang"), "ja");
   assert.equal(page.dispatchedEvents.at(-1).detail.lang, "ja");
 });
 
@@ -218,6 +234,7 @@ test("toggles to English and updates the drink breadcrumb and preference", () =>
   assert.equal(page.toggle.attributes["aria-label"], "Switch to Japanese");
   assert.equal(page.document.title, "Butter Mochi | Family Recipe Book");
   assert.equal(page.storage.get("preferredLanguage"), "en");
+  assert.equal(new URL(page.window.location.href).searchParams.get("lang"), "en");
 });
 
 test("preserves the corresponding content block and expanded categories", () => {
@@ -240,6 +257,14 @@ test("uses the browser language when there is no saved preference", () => {
 
   assert.equal(page.document.documentElement.lang, "ja");
   assert.equal(page.ja.section.classList.contains("active"), true);
+});
+
+test("uses a shared URL language instead of the saved preference", () => {
+  const page = loadToggle({ savedLanguage: "en", urlLanguage: "ja" });
+
+  assert.equal(page.document.documentElement.lang, "ja");
+  assert.equal(page.ja.section.classList.contains("active"), true);
+  assert.equal(page.storage.get("preferredLanguage"), "ja");
 });
 
 test("hides the toggle when the page has only one language", () => {

@@ -69,6 +69,17 @@
   </nav>
   {% endif %}
 
+  {% if page.collection == "recipes" %}
+  <section class="recipe-tools" aria-label="Recipe tools">
+    <label class="wake-lock-control" for="wake-lock-toggle">
+      <input id="wake-lock-toggle" type="checkbox">
+      <span class="wake-lock-label">Keep screen awake</span>
+    </label>
+    <button id="reset-progress-btn" type="button">Reset checklist</button>
+    <span id="recipe-tools-status" class="visually-hidden" role="status" aria-live="polite"></span>
+  </section>
+  {% endif %}
+
   <!-- ================= PAGE CONTENT ================= -->
   <main class="page-container">
     {{ content }}
@@ -93,5 +104,8 @@
   <!-- ================= SCRIPTS ================= -->
   <script src="{{ '/assets/js/lang-toggle.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/recipe-search.js' | relative_url }}"></script>
+  {% if page.collection == "recipes" %}
+  <script src="{{ '/assets/js/recipe-tools.js' | relative_url }}"></script>
+  {% endif %}
 </body>
 </html>
