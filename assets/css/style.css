@@ -206,7 +206,7 @@ li {
 .step-progress-checkbox {
   appearance: none;
   display: grid;
-  place-content: center;
+  place-content: start center;
   width: 2.25rem;
   height: 2.25rem;
   margin: 0;
