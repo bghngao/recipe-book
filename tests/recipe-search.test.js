@@ -17,6 +17,7 @@ class FakeElement {
     this.listeners = new Map();
     this.textContent = "";
     this.value = "";
+    this.ownerDocument = null;
   }
 
   addEventListener(type, listener) {
@@ -30,6 +31,10 @@ class FakeElement {
 
   contains(target) {
     return target === this || this.children.includes(target);
+  }
+
+  focus() {
+    if (this.ownerDocument) this.ownerDocument.activeElement = this;
   }
 
   setAttribute(name, value) {
@@ -67,10 +72,19 @@ function loadSearch(language) {
       genre: "drink",
       ingredients_en: ["Black tea"],
       ingredients_ja: ["紅茶"]
+    },
+    {
+      title_en: "Zzz Ice Tea",
+      title_ja: "ズズズアイスティー",
+      url: "/recipes/zzz-ice-tea/",
+      genre: "drink",
+      ingredients_en: ["Black tea"],
+      ingredients_ja: ["紅茶"]
     }
   ]);
 
   const document = {
+    activeElement: null,
     documentElement: { lang: language },
     addEventListener(type, listener) {
       if (type === "DOMContentLoaded") domReadyListeners.push(listener);
@@ -79,6 +93,7 @@ function loadSearch(language) {
     createElement(tagName) {
       const element = new FakeElement();
       element.tagName = tagName;
+      element.ownerDocument = document;
       return element;
     },
     getElementById(id) {
@@ -90,6 +105,9 @@ function loadSearch(language) {
     }
   };
 
+  input.ownerDocument = document;
+  results.ownerDocument = document;
+
   vm.runInNewContext(script, { console, document });
   domReadyListeners[0]();
 
@@ -98,7 +116,7 @@ function loadSearch(language) {
 
   const link = results.children[0].children[0];
   const genre = link.children[1];
-  return { genre, results };
+  return { document, genre, input, results };
 }
 
 test("shows the English label for drink search results", () => {
@@ -113,4 +131,24 @@ test("shows the Japanese label for drink search results", () => {
 
   assert.equal(results.hidden, false);
   assert.equal(genre.textContent, "ドリンク");
+});
+
+test("continues keyboard navigation after focus moves into search results", () => {
+  const { document, input, results } = loadSearch("en");
+  const links = results.querySelectorAll("a");
+  const keyEvent = key => ({ key, preventDefault() {} });
+
+  input.listeners.get("keydown")(keyEvent("ArrowDown"));
+  assert.equal(document.activeElement, links[0]);
+
+  results.listeners.get("keydown")(keyEvent("ArrowDown"));
+  assert.equal(document.activeElement, links[1]);
+
+  results.listeners.get("keydown")(keyEvent("ArrowUp"));
+  assert.equal(document.activeElement, links[0]);
+
+  results.listeners.get("keydown")(keyEvent("Escape"));
+  assert.equal(document.activeElement, input);
+  assert.equal(input.value, "");
+  assert.equal(results.hidden, true);
 });

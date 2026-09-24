@@ -88,7 +88,11 @@ function makeSection(lang, ingredientName) {
   return { row, section, step };
 }
 
-function loadRecipeTools({ wakeLockSupported = false } = {}) {
+function loadRecipeTools({
+  deferWakeLock = false,
+  wakeLockSupported = false,
+  savedProgress = { ingredient: { 0: true }, step: {} }
+} = {}) {
   const en = makeSection("en", "Salt");
   const ja = makeSection("ja", "塩");
   const wakeToggle = new FakeElement();
@@ -99,10 +103,13 @@ function loadRecipeTools({ wakeLockSupported = false } = {}) {
   const inputs = [];
   const documentListeners = new Map();
   const domReadyListeners = [];
-  const storage = new Map([
-    ["recipeProgress:/recipes/example/", JSON.stringify({ ingredient: { 0: true }, step: {} })]
-  ]);
+  const storage = new Map();
+  if (savedProgress) {
+    storage.set("recipeProgress:/recipes/example/", JSON.stringify(savedProgress));
+  }
   let wakeRequests = 0;
+  let wakeReleases = 0;
+  let resolveWakeLockRequest = null;
   let confirmResult = true;
 
   const document = {
@@ -146,20 +153,29 @@ function loadRecipeTools({ wakeLockSupported = false } = {}) {
 
   const navigator = {};
   if (wakeLockSupported) {
+    const createWakeLock = () => ({
+      addEventListener() {},
+      async release() {
+        wakeReleases += 1;
+      }
+    });
+
     navigator.wakeLock = {
       async request() {
         wakeRequests += 1;
-        return {
-          addEventListener() {},
-          async release() {}
-        };
+        if (!deferWakeLock) return createWakeLock();
+        return new Promise(resolve => {
+          resolveWakeLockRequest = () => resolve(createWakeLock());
+        });
       }
     };
   }
 
   const window = {
+    clearTimeout() {},
     confirm: () => confirmResult,
-    location: { pathname: "/recipes/example/" }
+    location: { pathname: "/recipes/example/" },
+    setTimeout: () => 1
   };
 
   vm.runInNewContext(script, {
@@ -167,6 +183,7 @@ function loadRecipeTools({ wakeLockSupported = false } = {}) {
     document,
     localStorage: {
       getItem: key => storage.get(key) ?? null,
+      removeItem: key => storage.delete(key),
       setItem: (key, value) => storage.set(key, value)
     },
     navigator,
@@ -184,6 +201,8 @@ function loadRecipeTools({ wakeLockSupported = false } = {}) {
     storage,
     tools,
     wakeLabel,
+    resolveWakeLockRequest: () => resolveWakeLockRequest?.(),
+    wakeReleases: () => wakeReleases,
     wakeRequests: () => wakeRequests,
     wakeToggle
   };
@@ -201,6 +220,8 @@ test("restores, synchronizes, and resets bilingual checklist progress", () => {
   ingredientInputs[0].checked = false;
   ingredientInputs[0].listeners.get("change")();
   assert.equal(ingredientInputs.every(input => !input.checked), true);
+  const saved = JSON.parse(page.storage.get("recipeProgress:/recipes/example/"));
+  assert.ok(Date.now() - saved.updatedAt < 1000);
 
   page.en.step.listeners.get("click")({ target: page.en.step });
   const stepInputs = page.inputs.filter(input => input.dataset.progressType === "step");
@@ -208,6 +229,7 @@ test("restores, synchronizes, and resets bilingual checklist progress", () => {
 
   page.resetButton.listeners.get("click")();
   assert.equal(page.inputs.every(input => !input.checked), true);
+  assert.equal(page.storage.has("recipeProgress:/recipes/example/"), false);
   assert.equal(page.status.textContent, "Checklist reset");
 });
 
@@ -231,4 +253,34 @@ test("requests a screen wake lock when enabled", async () => {
 
   assert.equal(page.wakeRequests(), 1);
   assert.equal(page.status.textContent, "Screen will stay awake");
+});
+
+test("releases a pending wake lock when disabled before acquisition completes", async () => {
+  const page = loadRecipeTools({ deferWakeLock: true, wakeLockSupported: true });
+
+  page.wakeToggle.checked = true;
+  const enablePromise = page.wakeToggle.listeners.get("change")();
+  assert.equal(page.wakeRequests(), 1);
+
+  page.wakeToggle.checked = false;
+  await page.wakeToggle.listeners.get("change")();
+  page.resolveWakeLockRequest();
+  await enablePromise;
+
+  assert.equal(page.wakeReleases(), 1);
+  assert.equal(page.wakeToggle.checked, false);
+  assert.equal(page.status.textContent, "Screen wake lock released");
+});
+
+test("discards checklist progress older than 24 hours", () => {
+  const page = loadRecipeTools({
+    savedProgress: {
+      ingredient: { 0: true },
+      step: { 0: true },
+      updatedAt: Date.now() - (25 * 60 * 60 * 1000)
+    }
+  });
+
+  assert.equal(page.inputs.every(input => !input.checked), true);
+  assert.equal(page.storage.has("recipeProgress:/recipes/example/"), false);
 });

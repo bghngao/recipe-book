@@ -18,7 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
       wakeOff: "Screen wake lock released",
       reset: "Reset checklist",
       resetConfirm: "Reset all checked ingredients and steps?",
-      resetDone: "Checklist reset"
+      resetDone: "Checklist reset",
+      expired: "Checklist reset after 24 hours"
     },
     ja: {
       ingredient: name => `${name}を完了にする`,
@@ -30,18 +31,37 @@ document.addEventListener("DOMContentLoaded", () => {
       wakeOff: "画面オン機能を解除しました",
       reset: "チェックリストをリセット",
       resetConfirm: "材料と手順のチェックをすべてリセットしますか？",
-      resetDone: "チェックリストをリセットしました"
+      resetDone: "チェックリストをリセットしました",
+      expired: "24時間後にチェックリストをリセットしました"
     }
   };
 
+  const PROGRESS_EXPIRY_MS = 24 * 60 * 60 * 1000;
   const storageKey = `recipeProgress:${window.location.pathname}`;
-  let progress = { ingredient: {}, step: {} };
+  let progress = { ingredient: {}, step: {}, updatedAt: null };
+  let progressNeedsMigration = false;
+  let progressExpiryTimer = null;
   let wakeLock = null;
   let wakeLockWanted = false;
+  let wakeLockRequestId = 0;
 
   try {
     const savedProgress = JSON.parse(localStorage.getItem(storageKey));
-    if (savedProgress?.ingredient && savedProgress?.step) progress = savedProgress;
+    if (savedProgress?.ingredient && savedProgress?.step) {
+      const updatedAt = Number(savedProgress.updatedAt);
+      const isExpired = updatedAt && Date.now() - updatedAt >= PROGRESS_EXPIRY_MS;
+
+      if (isExpired) {
+        localStorage.removeItem(storageKey);
+      } else {
+        progress = {
+          ingredient: savedProgress.ingredient,
+          step: savedProgress.step,
+          updatedAt: updatedAt || Date.now()
+        };
+        progressNeedsMigration = !updatedAt;
+      }
+    }
   } catch (error) {
     console.warn("recipe-tools: could not restore checklist", error);
   }
@@ -52,13 +72,45 @@ document.addEventListener("DOMContentLoaded", () => {
     if (status) status.textContent = message;
   };
 
-  const saveProgress = () => {
+  const expireProgress = () => {
+    progress = { ingredient: {}, step: {}, updatedAt: null };
+    try {
+      localStorage.removeItem(storageKey);
+    } catch (error) {
+      console.warn("recipe-tools: could not expire checklist", error);
+    }
+
+    document.querySelectorAll(".recipe-progress-checkbox").forEach(input => {
+      input.checked = false;
+      input.parentElement.classList.remove("recipe-progress-complete");
+    });
+    announce(LABELS[currentLanguage()].expired);
+  };
+
+  const scheduleProgressExpiry = () => {
+    if (progressExpiryTimer) window.clearTimeout(progressExpiryTimer);
+    if (!progress.updatedAt) return;
+
+    const remaining = PROGRESS_EXPIRY_MS - (Date.now() - progress.updatedAt);
+    if (remaining <= 0) {
+      expireProgress();
+      return;
+    }
+    progressExpiryTimer = window.setTimeout(expireProgress, remaining);
+  };
+
+  const saveProgress = (updateTimestamp = true) => {
+    if (updateTimestamp) progress.updatedAt = Date.now();
     try {
       localStorage.setItem(storageKey, JSON.stringify(progress));
     } catch (error) {
       console.warn("recipe-tools: could not save checklist", error);
     }
+    scheduleProgressExpiry();
   };
+
+  if (progressNeedsMigration) saveProgress(false);
+  else scheduleProgressExpiry();
 
   const syncChecklistItem = (type, index, checked) => {
     document.querySelectorAll(`[data-progress-type="${type}"][data-progress-index="${index}"]`)
@@ -140,16 +192,35 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const requestWakeLock = async () => {
-    if (!("wakeLock" in navigator) || document.visibilityState !== "visible") return;
+    if (
+      !("wakeLock" in navigator) ||
+      !wakeLockWanted ||
+      document.visibilityState !== "visible"
+    ) return;
+
+    const requestId = ++wakeLockRequestId;
 
     try {
-      wakeLock = await navigator.wakeLock.request("screen");
+      const acquiredWakeLock = await navigator.wakeLock.request("screen");
+
+      if (
+        requestId !== wakeLockRequestId ||
+        !wakeLockWanted ||
+        document.visibilityState !== "visible"
+      ) {
+        await acquiredWakeLock.release();
+        return;
+      }
+
+      wakeLock = acquiredWakeLock;
       announce(LABELS[currentLanguage()].wakeOn);
-      wakeLock.addEventListener("release", () => {
-        wakeLock = null;
+      acquiredWakeLock.addEventListener("release", () => {
+        if (wakeLock === acquiredWakeLock) wakeLock = null;
         if (!wakeLockWanted) wakeToggle.checked = false;
       });
     } catch (error) {
+      if (requestId !== wakeLockRequestId || !wakeLockWanted) return;
+
       wakeToggle.checked = false;
       wakeLockWanted = false;
       announce(LABELS[currentLanguage()].wakeUnavailable);
@@ -165,6 +236,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (wakeLockWanted) {
       await requestWakeLock();
     } else {
+      wakeLockRequestId += 1;
       await wakeLock?.release();
       wakeLock = null;
       announce(LABELS[currentLanguage()].wakeOff);
@@ -172,6 +244,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.addEventListener("visibilitychange", () => {
+    if (
+      document.visibilityState === "visible" &&
+      progress.updatedAt &&
+      Date.now() - progress.updatedAt >= PROGRESS_EXPIRY_MS
+    ) {
+      expireProgress();
+    }
+
     if (wakeLockWanted && document.visibilityState === "visible" && !wakeLock) requestWakeLock();
   });
 
@@ -179,8 +259,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const labels = LABELS[currentLanguage()];
     if (!window.confirm(labels.resetConfirm)) return;
 
-    progress = { ingredient: {}, step: {} };
-    saveProgress();
+    progress = { ingredient: {}, step: {}, updatedAt: null };
+    if (progressExpiryTimer) {
+      window.clearTimeout(progressExpiryTimer);
+      progressExpiryTimer = null;
+    }
+    try {
+      localStorage.removeItem(storageKey);
+    } catch (error) {
+      console.warn("recipe-tools: could not reset checklist storage", error);
+    }
     document.querySelectorAll(".recipe-progress-checkbox").forEach(input => {
       input.checked = false;
       input.parentElement.classList.remove("recipe-progress-complete");
