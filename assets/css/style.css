@@ -197,10 +197,9 @@ li {
 .recipe-step-item {
   display: flex;
   align-items: flex-start;
-  gap: 0.75rem;
-  margin: 0.5rem 0;
-  padding: 0.75rem;
-  border-radius: 12px;
+  gap: 0.25rem;
+  margin: 0.15rem 0;
+  padding: 0;
 }
 
 .step-progress-checkbox {
@@ -210,24 +209,15 @@ li {
   width: 2.75rem;
   height: 2.75rem;
   margin: 0;
-  border: 2px solid var(--text-primary);
-  border-radius: 50%;
-  background: #fffef2;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
   color: var(--text-primary);
-  font: 700 1rem/1 "Open Sans", "Noto Sans JP", sans-serif;
+  font: inherit;
 }
 
 .step-progress-checkbox::before {
-  content: attr(data-step-number);
-}
-
-.step-progress-checkbox:checked {
-  background: var(--text-primary);
-  color: var(--bg-page);
-}
-
-.step-progress-checkbox:checked::before {
-  content: "✓";
+  content: attr(data-step-number) ".";
 }
 
 .step-progress-checkbox:focus-visible {
@@ -236,7 +226,8 @@ li {
 }
 
 .recipe-step-item.recipe-progress-complete {
-  background: rgba(255, 0, 127, 0.08);
+  opacity: 0.7;
+  text-decoration: line-through;
 }
 
 @media (max-width: 520px) {
