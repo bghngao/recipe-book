@@ -97,11 +97,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
       item.classList.toggle("recipe-progress-complete", checkbox.checked);
 
-      checkbox.addEventListener("change", () => {
+      const updateProgress = () => {
         progress[type][index] = checkbox.checked;
         saveProgress();
         syncChecklistItem(type, index, checkbox.checked);
-      });
+      };
+
+      checkbox.addEventListener("change", updateProgress);
+
+      if (type === "step") {
+        item.addEventListener("click", event => {
+          if (event.target === checkbox) return;
+          checkbox.checked = !checkbox.checked;
+          updateProgress();
+        });
+      }
 
       item.prepend(checkbox);
     };
