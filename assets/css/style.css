@@ -185,7 +185,48 @@ li {
   vertical-align: middle;
 }
 
-.recipe-progress-complete {
+.ingredient-quantity.recipe-progress-complete {
+  opacity: 0.7;
+}
+
+.step-checklist {
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+.recipe-step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.25rem;
+  margin: 0.15rem 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.step-progress-checkbox {
+  appearance: none;
+  display: grid;
+  place-content: start center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text-primary);
+  font: inherit;
+}
+
+.step-progress-checkbox::before {
+  content: attr(data-step-number) ".";
+}
+
+.step-progress-checkbox:focus-visible {
+  outline: 3px solid var(--accent-pink);
+  outline-offset: 2px;
+}
+
+.recipe-step-item.recipe-progress-complete {
   opacity: 0.7;
   text-decoration: line-through;
 }

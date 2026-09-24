@@ -71,11 +71,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const addChecklist = (section, lang) => {
     const ingredientRows = Array.from(section.querySelectorAll(".ingredient-quantity"));
     const instructionHeading = section.querySelector(".title-instruction");
-    const steps = instructionHeading
-      ? Array.from(instructionHeading.closest(".container").querySelectorAll("ol > li"))
+    const instructionContainer = instructionHeading?.closest(".container");
+    const steps = instructionContainer
+      ? Array.from(instructionContainer.querySelectorAll("ol > li"))
       : [];
 
-    const addCheckbox = (item, type, index, label) => {
+    instructionContainer?.querySelectorAll("ol").forEach(list => {
+      list.classList.add("step-checklist");
+    });
+
+    const addCheckbox = (item, type, index, label, displayNumber = index + 1) => {
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
       checkbox.className = "recipe-progress-checkbox";
@@ -83,13 +88,30 @@ document.addEventListener("DOMContentLoaded", () => {
       checkbox.dataset.progressIndex = String(index);
       checkbox.setAttribute("aria-label", label);
       checkbox.checked = Boolean(progress[type][index]);
+
+      if (type === "step") {
+        checkbox.className += " step-progress-checkbox";
+        checkbox.dataset.stepNumber = String(displayNumber);
+        item.classList.add("recipe-step-item");
+      }
+
       item.classList.toggle("recipe-progress-complete", checkbox.checked);
 
-      checkbox.addEventListener("change", () => {
+      const updateProgress = () => {
         progress[type][index] = checkbox.checked;
         saveProgress();
         syncChecklistItem(type, index, checkbox.checked);
-      });
+      };
+
+      checkbox.addEventListener("change", updateProgress);
+
+      if (type === "step") {
+        item.addEventListener("click", event => {
+          if (event.target === checkbox) return;
+          checkbox.checked = !checkbox.checked;
+          updateProgress();
+        });
+      }
 
       item.prepend(checkbox);
     };
@@ -100,7 +122,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     steps.forEach((step, index) => {
-      addCheckbox(step, "step", index, LABELS[lang].step(index + 1));
+      const siblings = step.parentElement ? Array.from(step.parentElement.children) : steps;
+      const displayNumber = siblings.indexOf(step) + 1;
+      addCheckbox(step, "step", index, LABELS[lang].step(displayNumber), displayNumber);
     });
   };
 

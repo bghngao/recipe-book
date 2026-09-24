@@ -18,6 +18,10 @@ class FakeClassList {
     return this.classes.has(name);
   }
 
+  add(name) {
+    this.classes.add(name);
+  }
+
   remove(name) {
     this.classes.delete(name);
   }
@@ -197,6 +201,10 @@ test("restores, synchronizes, and resets bilingual checklist progress", () => {
   ingredientInputs[0].checked = false;
   ingredientInputs[0].listeners.get("change")();
   assert.equal(ingredientInputs.every(input => !input.checked), true);
+
+  page.en.step.listeners.get("click")({ target: page.en.step });
+  const stepInputs = page.inputs.filter(input => input.dataset.progressType === "step");
+  assert.equal(stepInputs.every(input => input.checked), true);
 
   page.resetButton.listeners.get("click")();
   assert.equal(page.inputs.every(input => !input.checked), true);
