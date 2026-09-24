@@ -42,12 +42,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const STORAGE_KEY = "preferredLanguage";
 
+  const readStoredLanguage = () => {
+    try {
+      return localStorage.getItem(STORAGE_KEY);
+    } catch (error) {
+      console.warn("lang-toggle: could not read language preference", error);
+      return null;
+    }
+  };
+
+  const saveLanguage = lang => {
+    try {
+      localStorage.setItem(STORAGE_KEY, lang);
+    } catch (error) {
+      console.warn("lang-toggle: could not save language preference", error);
+    }
+  };
+
   /* =========================================================
      State
      ========================================================= */
   const availableLangs = langSections.map(section => section.dataset.lang);
   const browserLang = navigator.language.startsWith("ja") ? "ja" : "en";
-  const savedLang = localStorage.getItem(STORAGE_KEY);
+  const savedLang = readStoredLanguage();
   const urlLang = new URL(window.location.href).searchParams.get("lang");
 
   let currentLang =
@@ -185,7 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
       : null;
 
     currentLang = lang;
-    localStorage.setItem(STORAGE_KEY, lang); // ⭐ persist
+    saveLanguage(lang);
 
     updateVisibility(lang);
     updateBadges(lang);

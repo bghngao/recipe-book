@@ -165,31 +165,39 @@ document.addEventListener("DOMContentLoaded", () => {
     if (searchInput.value.trim()) runSearch(searchInput.value);
   });
 
-  searchInput.addEventListener("keydown", e => {
+  const handleSearchKeydown = e => {
     if (e.key === "Escape") {
       searchInput.value = "";
       hideResults();
+      searchInput.focus();
       return;
     }
 
+    if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
     if (searchResults.hidden) return;
 
     const links = Array.from(searchResults.querySelectorAll("a"));
     if (!links.length) return;
 
-    const focused = searchResults.querySelector("a:focus");
-    const idx = links.indexOf(focused);
+    const focusedIndex = links.indexOf(document.activeElement);
 
     if (e.key === "ArrowDown") {
       e.preventDefault();
-      links[(idx + 1) % links.length].focus();
+      const nextIndex = focusedIndex === -1 ? 0 : (focusedIndex + 1) % links.length;
+      links[nextIndex].focus();
     }
 
     if (e.key === "ArrowUp") {
       e.preventDefault();
-      links[(idx - 1 + links.length) % links.length].focus();
+      const nextIndex = focusedIndex === -1
+        ? links.length - 1
+        : (focusedIndex - 1 + links.length) % links.length;
+      links[nextIndex].focus();
     }
-  });
+  };
+
+  searchInput.addEventListener("keydown", handleSearchKeydown);
+  searchResults.addEventListener("keydown", handleSearchKeydown);
 
   document.addEventListener("click", e => {
     if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {

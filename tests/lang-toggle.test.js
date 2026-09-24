@@ -90,6 +90,7 @@ function loadToggle({
   enDetails = [],
   jaDetails = [],
   languages = ["en", "ja"],
+  storageThrows = false,
   urlLanguage = null
 } = {}) {
   const toggle = new FakeElement();
@@ -167,8 +168,14 @@ function loadToggle({
     CustomEvent,
     document,
     localStorage: {
-      getItem: key => storage.get(key) ?? null,
-      setItem: (key, value) => storage.set(key, value)
+      getItem(key) {
+        if (storageThrows) throw new Error("Storage unavailable");
+        return storage.get(key) ?? null;
+      },
+      setItem(key, value) {
+        if (storageThrows) throw new Error("Storage unavailable");
+        storage.set(key, value);
+      }
     },
     navigator: { language: browserLanguage },
     URL,
@@ -271,4 +278,13 @@ test("hides the toggle when the page has only one language", () => {
   const page = loadToggle({ languages: ["en"] });
 
   assert.equal(page.toggle.style.display, "none");
+});
+
+test("continues to work when browser storage is unavailable", () => {
+  const page = loadToggle({ browserLanguage: "ja-JP", storageThrows: true });
+
+  assert.equal(page.document.documentElement.lang, "ja");
+  page.toggle.click();
+  assert.equal(page.document.documentElement.lang, "en");
+  assert.equal(new URL(page.window.location.href).searchParams.get("lang"), "en");
 });
