@@ -7,7 +7,7 @@ alternate_name: Chả Trứng Hấp
 genre: main
 genre_en: Main Dish
 genre_ja: 主菜
-order:
+order: 3
 ingredients_en:
   - "Ground pork"
   - "Ground chicken"

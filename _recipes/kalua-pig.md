@@ -4,7 +4,7 @@ title: Kalua Pig
 title_en: Kalua Pig (Hawaiian Pulled Pork)
 title_ja: カルアポーク
 genre: main
-order:
+order: 1
 ingredients_en:
   - "Pork butt"
   - "Sea salt"
