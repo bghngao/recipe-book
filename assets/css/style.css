@@ -15,11 +15,20 @@
    Base Styles
    ========================================================= */
 body {
-  font-family: "Ubuntu", "Meiryo", sans-serif;
+  font-family: "Open Sans", "Noto Sans JP", sans-serif;
   background-color: var(--bg-page);
   color: var(--text-primary);
   margin: 0;
   padding: 16px;
+}
+
+html[lang="ja"] body,
+.lang[data-lang="ja"] {
+  font-family: "Noto Sans JP", "Open Sans", sans-serif;
+}
+
+.lang[data-lang="en"] {
+  font-family: "Open Sans", "Noto Sans JP", sans-serif;
 }
 
 /* =========================================================
@@ -165,18 +174,20 @@ li {
   color: var(--bg-page);
   border: none;
   border-radius: 999px;
+  font-family: inherit;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
   transition:
-    background-color 0.25s ease,
+    outline-color 0.25s ease,
     transform 0.15s ease;
 }
 
 #toggle-btn:hover,
-#toggle-btn:focus {
-  background-color: var(--accent-pink);
-  outline: none;
+#toggle-btn:focus-visible {
+  background-color: var(--text-primary);
+  outline: 3px solid var(--accent-pink);
+  outline-offset: 2px;
 }
 
 #toggle-btn:active {
@@ -193,7 +204,7 @@ li {
   align-items: center;
   gap: 6px;
   padding: 4px 2px;
-  opacity: 0.5;
+  opacity: 0.7;
   transition: opacity 0.2s ease;
 }
 
@@ -288,7 +299,7 @@ li {
   margin-left: 6px;
   padding: 2px 7px;
   border-radius: 999px;
-  font-size: 0.78rem;
+  font-size: 0.875rem;
   font-weight: bold;
   background: rgba(173, 216, 231, 0.5);
   white-space: nowrap;
@@ -296,7 +307,8 @@ li {
 
 .ingredient-match-chip {
   background: rgba(255, 0, 127, 0.12);
-  color: var(--accent-pink);
+  color: var(--text-primary);
+  border: 1px solid var(--accent-pink);
 }
 
 
