@@ -18,6 +18,10 @@ class FakeClassList {
     return this.classes.has(name);
   }
 
+  add(name) {
+    this.classes.add(name);
+  }
+
   remove(name) {
     this.classes.delete(name);
   }

@@ -185,9 +185,58 @@ li {
   vertical-align: middle;
 }
 
-.recipe-progress-complete {
+.ingredient-quantity.recipe-progress-complete {
   opacity: 0.7;
-  text-decoration: line-through;
+}
+
+.step-checklist {
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+.recipe-step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin: 0.5rem 0;
+  padding: 0.75rem;
+  border-radius: 12px;
+}
+
+.step-progress-checkbox {
+  appearance: none;
+  display: grid;
+  place-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin: 0;
+  border: 2px solid var(--text-primary);
+  border-radius: 50%;
+  background: #fffef2;
+  color: var(--text-primary);
+  font: 700 1rem/1 "Open Sans", "Noto Sans JP", sans-serif;
+}
+
+.step-progress-checkbox::before {
+  content: attr(data-step-number);
+}
+
+.step-progress-checkbox:checked {
+  background: var(--text-primary);
+  color: var(--bg-page);
+}
+
+.step-progress-checkbox:checked::before {
+  content: "✓";
+}
+
+.step-progress-checkbox:focus-visible {
+  outline: 3px solid var(--accent-pink);
+  outline-offset: 2px;
+}
+
+.recipe-step-item.recipe-progress-complete {
+  background: rgba(255, 0, 127, 0.08);
 }
 
 @media (max-width: 520px) {
