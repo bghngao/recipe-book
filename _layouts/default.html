@@ -24,7 +24,7 @@
     <!-- Centered Search Row -->
     <div class="header-search-row">
       <div class="header-search-wrap" role="search">
-        <label for="header-search" class="visually-hidden">Search recipes by name or ingredient</label>
+        <label for="header-search" class="visually-hidden header-search-label">Search recipes by name or ingredient</label>
         <input
           id="header-search"
           class="header-search-input"
@@ -42,7 +42,7 @@
   {% if page.collection == "recipes" %}
   <nav class="breadcrumb-nav" aria-label="Breadcrumb">
     <div class="breadcrumb-inner">
-      <a href="{{ '/' | relative_url }}" class="breadcrumb-link">
+      <a href="{{ '/' | relative_url }}" class="breadcrumb-link breadcrumb-home">
         Home
       </a>
 

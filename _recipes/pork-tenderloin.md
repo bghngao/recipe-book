@@ -4,7 +4,7 @@ title: Baked Pork Tenderloin
 title_en: Baked Pork Tenderloin
 title_ja: オーブン焼き豚ヒレ
 genre: main
-order:
+order: 2
 ingredients_en:
   - "Pork tenderloin"
   - "Olive oil"

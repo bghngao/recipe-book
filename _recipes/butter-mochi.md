@@ -4,10 +4,10 @@ title: Butter Mochi
 title_en: Butter Mochi
 title_ja: バター餅
 genre: dessert
-order:
+order: 1
 ingredients_en:
   - "Mochiko flour"
-  - "Gramulated sugar"
+  - "Granulated sugar"
   - "Baking Powder"
   - "Salt"
   - "Eggs (room temperature)"
@@ -43,7 +43,7 @@ ingredients_ja:
       <div class="column-right-amount">450g</div>
     </div>
     <div class="ingredient-quantity">
-      <div class="column-left-ingredient">Gramulated sugar</div>
+      <div class="column-left-ingredient">Granulated sugar</div>
       <div class="column-right-amount">300g</div>
     </div>
     <div class="ingredient-quantity">
@@ -84,8 +84,8 @@ ingredients_ja:
     <h2 class="title-instruction">Instructions</h2>
     <ol>
       <li>Preheat oven to 180°C</li>
-      <li>Butter 9x13-inch (22-33-cm) baking pan, line with parchment paper.</li>
-      <li>Mix together sugar, baking soda, salt. Sift in mochiko flour.</li>
+      <li>Butter a 9×13-inch (22×33cm) baking pan and line with parchment paper.</li>
+      <li>Mix together sugar, baking powder, and salt. Sift in mochiko flour.</li>
       <li>Add in eggs, milk, coconut milk, butter, vanilla extract. Mix until smooth, then pour into pan.</li>
       <li>Bake 50-60 minutes or until top is golden brown.</li>
       <li>Remove from oven and allow to cool for 15-20 minutes.</li>

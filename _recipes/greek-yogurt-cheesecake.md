@@ -4,7 +4,7 @@ title: Greek Yogurt Cheesecake
 title_en: Greek Yogurt Cheesecake
 title_ja: ギリシャヨーグルトチーズケーキ
 genre: dessert
-order:
+order: 2
 ingredients_en:
   - "Graham cracker crumbs"
   - "Unsalted butter"

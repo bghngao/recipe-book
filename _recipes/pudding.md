@@ -4,7 +4,7 @@ title: Pudding
 title_en: Pudding
 title_ja: プリン
 genre: dessert
-order:
+order: 4
 ingredients_en:
   - "Granulated sugar"
   - "Water"

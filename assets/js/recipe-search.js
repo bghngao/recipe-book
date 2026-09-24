@@ -28,8 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const genreLabel = (genre, lang) => {
     const labels = {
-      en: { main: "Main Dishes", dessert: "Desserts", sauce: "Sauces" },
-      ja: { main: "メイン料理", dessert: "デザート", sauce: "ソース" }
+      en: { main: "Main Dishes", dessert: "Desserts", sauce: "Sauces", drink: "Drinks" },
+      ja: { main: "メイン料理", dessert: "デザート", sauce: "ソース", drink: "ドリンク" }
     };
     return labels[lang]?.[genre] || genre || "";
   };
