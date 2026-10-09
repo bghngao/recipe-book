@@ -25,7 +25,6 @@ ingredients_ja:
 
 <div class="lang" data-lang="en">
   <h1 class="title-recipe">🍫 Rich Chocolate Cake (Nama Chocolate Style)</h1>
-  <p>Makes 1 loaf-pan cake.</p>
 
   <div class="container">
     <h2 class="title-ingredient">Ingredients</h2>
@@ -72,7 +71,6 @@ ingredients_ja:
 
 <div class="lang" data-lang="ja">
   <h1 class="title-recipe">🍫 生チョコ風 濃厚チョコケーキ</h1>
-  <p>パウンドケーキ型1個分。</p>
 
   <div class="container">
     <h2 class="title-ingredient">材料</h2>
