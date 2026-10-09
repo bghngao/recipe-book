@@ -41,5 +41,7 @@ jobs:
           bundler-cache: true
       - name: Build complete site
         run: bundle exec jekyll build --trace
+      - name: Test recipe body validation
+        run: bundle exec ruby tests/verify-site.rb
       - name: Verify recipe pages and assets
         run: bundle exec ruby scripts/verify-site.rb

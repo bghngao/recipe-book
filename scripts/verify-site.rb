@@ -2,7 +2,7 @@ require "json"
 require "jekyll"
 
 root = File.expand_path("..", __dir__)
-site = Jekyll::Site.new(Jekyll.configuration("source" => root, "destination" => File.join(root, "_site")))
+site = Jekyll::Site.new(Jekyll.configuration("source" => root, "destination" => File.expand_path(ARGV.fetch(0, "_site"), root)))
 site.read
 recipes = site.collections.fetch("recipes").docs
 abort "No recipes found" if recipes.empty?
@@ -24,10 +24,36 @@ pages.each do |path|
   abort "Incomplete recipe search index in #{path}" unless index.map { |entry| entry.fetch("url") }.sort == expected_urls
 end
 
+# Kramdown is already a Jekyll dependency; parse HTML to respect nested sections.
+descendants = lambda do |node|
+  [node] + node.children.flat_map { |child| descendants.call(child) }
+end
 recipes.each do |recipe|
   html = read_output.call(recipe.destination(site.dest))
+  document = Kramdown::Document.new(html, input: "html").root
+  body = descendants.call(document).find do |node|
+    node.type == :html_element && node.value == "main" &&
+      node.attr.fetch("class", "").split.include?("page-container")
+  end
+  abort "Missing recipe body: #{recipe.path}" unless body
+
   %w[en ja].each do |language|
-    abort "Missing #{language} recipe content: #{recipe.path}" unless html.include?(%Q(data-lang="#{language}"))
+    sections = descendants.call(body).select do |node|
+      node.type == :html_element && node.attr.fetch("class", "").split.include?("lang") &&
+        node.attr["data-lang"] == language
+    end
+    abort "Missing #{language} recipe content: #{recipe.path}" if sections.empty?
+    nonempty = sections.any? do |section|
+      descendants.call(section).any? do |node|
+        text = case node.type
+               when :text, :codespan, :codeblock then node.value.to_s
+               when :entity then node.value.code_point.chr(Encoding::UTF_8)
+               else ""
+               end
+        text.match?(/[^[:space:]]/)
+      end
+    end
+    abort "Empty #{language} recipe content: #{recipe.path}" unless nonempty
   end
 end
 
