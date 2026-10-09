@@ -21,10 +21,19 @@ These instructions apply to all development tasks in this repository, a bilingua
 
 ## GitHub workflow
 
-- After successful verification, prepare a pull request targeting `main`.
-- Include a summary of changes, test results, and known limitations in the pull request.
-- If creating the pull request is unavailable, explain the manual steps required to push the feature branch and open a pull request against `main`.
-- Require independent code review before merging. Never automatically merge a pull request or approve your own changes on behalf of an independent reviewer.
+1. For every task that modifies repository files, create a dedicated feature branch from the latest `main` branch.
+2. Implement the requested changes and run relevant automated tests and build checks.
+3. When implementation and verification are complete, automatically commit the changes to the feature branch.
+4. Automatically push the feature branch to GitHub.
+5. Automatically create a GitHub pull request targeting `main` using the connected GitHub integration.
+6. Include a meaningful PR title, change summary, test results, and any verification limitations.
+7. Do not stop after editing files, committing changes, or preparing a PR description. Actually create the GitHub pull request before considering the task complete.
+8. Do not ask the user for a separate instruction to create or publish the PR. Proceed automatically when permitted by available tools and permissions.
+9. If Git push is unavailable in the workspace, use the connected GitHub integration when supported.
+10. If PR creation fails, report the specific error and what remains to be done.
+11. Return the GitHub PR URL as part of the final task summary.
+12. Never merge into `main` automatically. Leave the PR open for independent Codex review and human approval. Never approve your own changes on behalf of an independent reviewer.
+13. For read-only analysis tasks, do not create a PR unless repository files were intentionally changed.
 
 ## Code review rules
 
