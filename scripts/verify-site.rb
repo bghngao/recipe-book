@@ -4,6 +4,9 @@ require "github-pages"
 root = File.expand_path("..", __dir__)
 site = Jekyll::Site.new(Jekyll.configuration("source" => root, "destination" => File.expand_path(ARGV.fetch(0, "_site"), root)))
 site.read
+# Assert the deployment path independently of relative_url so a configuration
+# regression cannot make both the generated links and their expectations wrong.
+abort "Incorrect GitHub Pages baseurl" unless site.config["baseurl"] == "/recipe-book"
 recipes = site.collections.fetch("recipes").docs
 abort "No recipes found" if recipes.empty?
 
@@ -48,6 +51,13 @@ pages.each do |path|
   html = read_output.call(path)
   abort "Unrendered Liquid in #{path}" if html.match?(/\{%|\{\{/)
   nodes = descendants.call(Kramdown::Document.new(html, input: "html").root)
+  stylesheets = nodes.select do |node|
+    node.type == :html_element && node.value == "link" &&
+      node.attr.fetch("rel", "").split.include?("stylesheet") &&
+      node.attr["href"] == "/recipe-book/assets/css/style.css"
+  end
+  abort "Missing or duplicate site stylesheet in #{path}" unless stylesheets.length == 1
+  read_output.call(File.join(site.dest, "assets/css/style.css"))
   containers = nodes.select do |node|
     node.type == :html_element && node.value == "main" &&
       node.attr.fetch("class", "").split.include?("page-container")

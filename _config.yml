@@ -1,7 +1,7 @@
 title: Family Recipe Book
 repository: bghngao/recipe-book
-# Preserve the existing root-relative URLs; set /recipe-book for project Pages.
-baseurl: ""
+# GitHub project Pages serves this site under /recipe-book.
+baseurl: "/recipe-book"
 
 collections:
   recipes:
