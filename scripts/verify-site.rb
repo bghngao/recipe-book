@@ -1,5 +1,5 @@
 require "json"
-require "jekyll"
+require "github-pages"
 
 root = File.expand_path("..", __dir__)
 site = Jekyll::Site.new(Jekyll.configuration("source" => root, "destination" => File.expand_path(ARGV.fetch(0, "_site"), root)))

@@ -39,9 +39,11 @@ jobs:
         with:
           ruby-version: '3.3'
           bundler-cache: true
+      - name: Report GitHub Pages dependency versions
+        run: bundle exec github-pages versions
       - name: Build complete site
         run: bundle exec jekyll build --trace
-      - name: Test recipe body validation
+      - name: Test site verifier
         run: bundle exec ruby tests/verify-site.rb
       - name: Verify recipe pages and assets
         run: bundle exec ruby scripts/verify-site.rb

@@ -45,7 +45,25 @@ Then open the local URL printed by Jekyll.
 
 ## Deploy to GitHub Pages
 
-Push this repository to GitHub and enable Pages for the branch containing the site. GitHub Pages will build the Jekyll site automatically.
+In **Settings → Pages**, select **Deploy from a branch**, then `main` and
+`/ (root)`. GitHub Pages builds and deploys the source after merge; this CI
+workflow only validates it. The bundle uses `github-pages` 232, the published
+Pages dependency set, including Jekyll 3.10.0, Liquid 4.0.4, Kramdown 2.4.0,
+and jekyll-sass-converter 1.5.2. Do not add a separate Jekyll or Sass converter
+pin: the Pages gem owns those versions.
+
+The Pages gem also applies the Pages plugin whitelist, safe mode, and Markdown
+defaults. Both the build and verifier load it. Ruby 3.3 with Bundler 2.6.7 is
+compatible with this bundle and is used by CI; the managed Pages service controls
+its own Ruby runtime and deployment settings. Branch deployments use GitHub's
+managed dependencies rather than installing this repository's lockfile. When
+GitHub updates its published set, update the Pages gem pin and lockfile together,
+then rerun CI. See [GitHub Pages dependencies](https://pages.github.com/versions/).
+
+For project Pages URLs under `/recipe-book`, configure the appropriate `baseurl`
+in `_config.yml` before deployment; custom domains or user/organization sites
+may use an empty base URL. CI respects the configured URL prefix. Publishing and
+repository Pages settings are separate from this PR.
 
 ## Continuous integration
 
@@ -56,7 +74,8 @@ with only `contents: read` permission and no deployment credentials.
 - **Tests** uses Node.js 24 and runs `npm test`. The tests use Node built-ins, so
   no npm install or npm lockfile is needed.
 - **Jekyll Build** uses Ruby 3.3 and `ruby/setup-ruby` to install and cache the
-  exact dependencies in `Gemfile.lock` with frozen Bundler resolution. It runs a
+  GitHub Pages dependencies in `Gemfile.lock` using Bundler 2.6.7 with frozen
+  resolution. It reports the selected Pages versions and runs a
   complete production `bundle exec jekyll build --trace`, then
   `bundle exec ruby scripts/verify-site.rb`. Verification checks the homepage,
   every recipe's generated page, rendered layout, and nonempty English/Japanese
@@ -78,8 +97,10 @@ bundle exec ruby tests/verify-site.rb
 bundle exec ruby scripts/verify-site.rb
 ```
 
-Commit both `Gemfile` and `Gemfile.lock` when updating gems. Run `bundle update`
-(or update a specific gem), repeat the checks above, and review the lockfile diff.
+Commit both `Gemfile` and `Gemfile.lock` when updating gems. Update the
+`github-pages` pin to the published Pages version and run
+`bundle update github-pages`, repeat the checks above, and review the lockfile
+diff.
 Jekyll's generated output and local Bundler files are ignored; development and CI
 files are excluded from the published site via `_config.yml`.
 
