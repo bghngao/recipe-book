@@ -39,6 +39,25 @@ Dir.mktmpdir("verify-site-") do |destination|
     "ja" => '<div class="lang" data-lang="ja"><div><p>バターと卵</p></div></div>'
   }
   check.call(sections.values.join, nil)
+  stylesheet_pattern = /<link rel="stylesheet" href="\/recipe-book\/assets\/css\/style\.css">/
+  abort "Missing stylesheet regression fixture" unless original.match?(stylesheet_pattern)
+  check_html.call(original.sub(stylesheet_pattern, ""), "Missing or duplicate site stylesheet")
+  check_html.call(original.sub(stylesheet_pattern) { "#{$&}#{$&}" }, "Missing or duplicate site stylesheet")
+  check_html.call(original.sub("/recipe-book/assets/css/style.css", "/assets/css/style.css"),
+                  "Missing or duplicate site stylesheet")
+  check_html.call(original.sub(stylesheet_pattern) { "<!-- #{$&} -->" },
+                  "Missing or duplicate site stylesheet")
+  check_html.call(original.sub(stylesheet_pattern, '<link rel="preload" href="/recipe-book/assets/css/style.css">'),
+                  "Missing or duplicate site stylesheet")
+
+  stylesheet_path = File.join(destination, "assets", "css", "style.css")
+  stylesheet = File.binread(stylesheet_path)
+  File.delete(stylesheet_path)
+  check_html.call(original, "Missing or empty output")
+  File.binwrite(stylesheet_path, "")
+  check_html.call(original, "Missing or empty output")
+  File.binwrite(stylesheet_path, stylesheet)
+  check_html.call(original, nil)
   sections.each_key do |language|
     other = sections.fetch(language == "en" ? "ja" : "en")
     check.call(other, "Missing #{language} recipe content")
