@@ -27,7 +27,9 @@ ingredients_ja:
 
 <div class="lang" data-lang="en">
   <h1 class="title-recipe">🍄 Tofu with Mushroom Ankake</h1>
-  <p>Serves 1–2</p>
+  <div class="container">
+    <p><strong>Yield:</strong> Serves 1–2</p>
+  </div>
 
   <div class="container">
     <h2 class="title-ingredient">Ingredients</h2>
@@ -75,7 +77,9 @@ ingredients_ja:
 
 <div class="lang" data-lang="ja">
   <h1 class="title-recipe">🍄 豆腐のきのこあんかけ</h1>
-  <p>1〜2人分</p>
+  <div class="container">
+    <p><strong>分量：</strong>1〜2人分</p>
+  </div>
 
   <div class="container">
     <h2 class="title-ingredient">材料</h2>
