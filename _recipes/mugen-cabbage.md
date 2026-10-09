@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Addictive Cabbage
-title_en: Addictive Cabbage
+title: Yamitsuki Cabbage
+title_en: Yamitsuki Cabbage
 title_ja: 無限キャベツ
-genre: main
-genre_en: Main Dish
-genre_ja: 主菜
-order: 7
+genre: starters
+genre_en: Starters
+genre_ja: 前菜
+order: 1
 ingredients_en:
   - "Cabbage"
   - "Canned tuna"
@@ -24,7 +24,7 @@ ingredients_ja:
 ---
 
 <div class="lang" data-lang="en">
-  <h1 class="title-recipe">🥬 Addictive Cabbage</h1>
+  <h1 class="title-recipe">🥬 Yamitsuki Cabbage</h1>
   <div class="container">
     <p><strong>Yield:</strong> Serves 2</p>
   </div>
@@ -61,7 +61,7 @@ ingredients_ja:
   <div class="container">
     <h2 class="title-instruction">Instructions</h2>
     <ol>
-      <li>Tear the cabbage into pieces.</li>
+      <li>Finely shred the cabbage.</li>
       <li>Put all ingredients except the pepper in a microwave-safe bowl and mix.</li>
       <li>Cover loosely with plastic wrap and microwave at 600W for 2 minutes.</li>
       <li>Stir, sprinkle with pepper, and serve.</li>
@@ -107,7 +107,7 @@ ingredients_ja:
   <div class="container">
     <h2 class="title-instruction">作り方</h2>
     <ol>
-      <li>キャベツをちぎる。</li>
+      <li>キャベツを千切りにする。</li>
       <li>耐熱ボウルにこしょう以外の材料をすべて入れ、混ぜる。</li>
       <li>ふんわりとラップをして、600Wの電子レンジで2分加熱する。</li>
       <li>混ぜて、こしょうをふって完成。</li>
