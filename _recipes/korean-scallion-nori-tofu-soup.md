@@ -3,10 +3,10 @@ layout: default
 title: Korean-Style Scallion, Nori & Tofu Soup
 title_en: Korean-Style Scallion, Nori & Tofu Soup
 title_ja: 小ねぎとのり、豆腐の韓国風スープ
-genre: main
-genre_en: Main Dish
-genre_ja: 主菜
-order: 5
+genre: soup
+genre_en: Soup
+genre_ja: スープ
+order: 1
 ingredients_en:
   - "Silken tofu"
   - "Scallion"
