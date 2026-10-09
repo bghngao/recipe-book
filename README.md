@@ -59,11 +59,15 @@ with only `contents: read` permission and no deployment credentials.
   exact dependencies in `Gemfile.lock` with frozen Bundler resolution. It runs a
   complete production `bundle exec jekyll build --trace`, then
   `bundle exec ruby scripts/verify-site.rb`. Verification checks the homepage,
-  every recipe's generated page, rendered layout and bilingual content, nonempty English/Japanese sections inside the rendered recipe body, complete
-  JSON search indexes, and nonempty, unchanged CSS, JavaScript, image and robots
-  assets. The build job also runs `tests/verify-site.rb`, which keeps the header
-  toggles intact and confirms that missing or empty English/Japanese recipe
-  sections fail validation. This does not deploy the site or test browser behavior/external fonts.
+  every recipe's generated page, rendered layout, and nonempty English/Japanese
+  sections inside the recipe body. Each JSON search-index entry must match its
+  source recipe's URL, English/Japanese titles, genre, and ingredient arrays,
+  including field presence and types. It also checks nonempty, unchanged CSS,
+  JavaScript, image and robots assets. The build job runs `tests/verify-site.rb`
+  to prove that missing/empty language content, missing/corrupted/mismatched
+  search fields, malformed indexes, duplicate entries, and commented-out markup
+  fail validation. This does not deploy the site or test browser behavior or
+  external fonts.
 
 To reproduce locally after `bundle install`:
 
