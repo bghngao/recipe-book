@@ -6,7 +6,7 @@ title_ja: たこ炊き込み飯
 genre: main
 genre_en: Main Dish
 genre_ja: 主菜
-order: 5
+order: 6
 ingredients_en:
   - "Japanese short-grain rice"
   - "Water"
