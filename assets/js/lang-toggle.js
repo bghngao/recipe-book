@@ -10,13 +10,13 @@ document.addEventListener("DOMContentLoaded", () => {
      ========================================================= */
   const GENRE_LABELS = {
     en: {
-      main: "Main Dishes",
+      starters: "Starters", soup: "Soup", main: "Main Dishes",
       dessert: "Desserts",
       sauce: "Sauces",
       drink: "Drinks"
     },
     ja: {
-      main: "メイン料理",
+      starters: "前菜", soup: "スープ", main: "メイン料理",
       dessert: "デザート",
       sauce: "ソース",
       drink: "ドリンク"

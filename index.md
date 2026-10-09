@@ -3,7 +3,7 @@ layout: default
 title: Home
 ---
 
-{% assign genres = "main,dessert,sauce,drink" | split: "," %}
+{% assign genres = "starters,soup,main,dessert,sauce,drink" | split: "," %}
 
 <!-- ================= ENGLISH ================= -->
 <div class="lang" data-lang="en">
@@ -15,6 +15,8 @@ title: Home
       <details class="container">
         <summary class="title-ingredient">
           {% case genre %}
+            {% when "starters" %} 🥬 Starters
+            {% when "soup" %} 🍲 Soup
             {% when "main" %} 🍝 Main Dishes
             {% when "dessert" %} 🍰 Desserts
             {% when "sauce" %} 🥣 Sauces
@@ -46,6 +48,8 @@ title: Home
       <details class="container">
         <summary class="title-ingredient">
           {% case genre %}
+            {% when "starters" %} 🥬 前菜
+            {% when "soup" %} 🍲 スープ
             {% when "main" %} 🍝 メイン料理
             {% when "dessert" %} 🍰 デザート
             {% when "sauce" %} 🥣 ソース
