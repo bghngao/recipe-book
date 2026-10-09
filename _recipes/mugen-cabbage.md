@@ -6,7 +6,7 @@ title_ja: 無限キャベツ
 genre: main
 genre_en: Main Dish
 genre_ja: 主菜
-order: 5
+order: 7
 ingredients_en:
   - "Cabbage"
   - "Canned tuna"
