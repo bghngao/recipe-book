@@ -1,6 +1,18 @@
 title: Family Recipe Book
+repository: bghngao/recipe-book
+# Preserve the existing root-relative URLs; set /recipe-book for project Pages.
+baseurl: ""
 
 collections:
   recipes:
     output: true
     permalink: /recipes/:name/
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - package.json
+  - tests
+  - scripts
+  - vendor
