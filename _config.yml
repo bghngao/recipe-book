@@ -4,3 +4,12 @@ collections:
   recipes:
     output: true
     permalink: /recipes/:name/
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - package.json
+  - tests
+  - scripts
+  - vendor

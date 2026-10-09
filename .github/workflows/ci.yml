@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    name: Tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      # The suite uses only Node built-ins; there are no npm dependencies.
+      - run: npm test
+
+  jekyll-build:
+    name: Jekyll Build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      JEKYLL_ENV: production
+      BUNDLE_FROZEN: 'true'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+      - name: Build complete site
+        run: bundle exec jekyll build --trace
+      - name: Verify recipe pages and assets
+        run: bundle exec ruby scripts/verify-site.rb
