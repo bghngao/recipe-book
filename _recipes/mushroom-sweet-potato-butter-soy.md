@@ -85,7 +85,7 @@ ingredients_ja:
   <div class="container">
     <h2 class="title-instruction">Instructions</h2>
     <ol>
-      <li>Wash the sweet potato well and cut into rounds. Soak in water to remove the astringency, then place in a microwave-safe container with 2 tbsp water. Cover loosely with plastic wrap and microwave at 600W for 3 minutes.</li>
+      <li>Wash the sweet potato well and cut into irregular chunks (rangiri). Soak in water to remove the astringency, then place in a microwave-safe container with 2 tbsp water. Cover loosely with plastic wrap and microwave at 600W for 3 minutes.</li>
       <li>Trim the base from the shimeji mushrooms and separate into small clusters. Separate the maitake mushrooms into pieces as well.</li>
       <li>Heat the vegetable oil in a frying pan over medium heat. Add the shimeji and maitake mushrooms, sprinkle with the salt, and cook, allowing them to brown. Once the mushrooms soften, add the sweet potato, mirin, sake, soy sauce, and butter, then briefly stir-fry everything together.</li>
     </ol>
@@ -146,7 +146,7 @@ ingredients_ja:
   <div class="container">
     <h2 class="title-instruction">作り方</h2>
     <ol>
-      <li>さつま芋はよく洗い、輪切りにして水にさらしてアクを抜く。耐熱容器に水大さじ2と一緒に入れ、ラップをふんわりかけて600Wの電子レンジで3分加熱する。</li>
+      <li>さつま芋はよく洗い、乱切りにして水にさらしてアクを抜く。耐熱容器に水大さじ2と一緒に入れ、ラップをふんわりかけて600Wの電子レンジで3分加熱する。</li>
       <li>しめじは石づきを取り、小房に分ける。舞茸も分ける。</li>
       <li>フライパンにサラダ油をひき、中火で熱する。しめじ、舞茸を入れて塩をふり、焼き付けるようにして火を通す。しんなりしてきたら、さつま芋、みりん、酒、しょうゆ、バターを加え、さっと炒め合わせる。</li>
     </ol>
