@@ -66,12 +66,17 @@ class FakeElement {
   setAttribute(name, value) {
     this.attributes[name] = value;
   }
+
+  getAttribute(name) {
+    return this.attributes[name] ?? null;
+  }
 }
 
 function makeLanguageSection(lang, title, blockTops, detailStates = []) {
   const heading = new FakeElement({ textContent: title, top: blockTops[0] });
   const containers = blockTops.slice(1).map(top => new FakeElement({ top }));
-  const details = detailStates.map(open => new FakeElement({ open }));
+  const details = detailStates.map((open, index) =>
+    new FakeElement({ open, dataset: { genre: ["dessert", "drink", "main"][index] } }));
   const section = new FakeElement({ classes: ["lang"], dataset: { lang } });
 
   section.selectorMap.set("h1", [heading]);
@@ -91,12 +96,15 @@ function loadToggle({
   jaDetails = [],
   languages = ["en", "ja"],
   storageThrows = false,
-  urlLanguage = null
+  urlLanguage = null,
+  category = null,
+  basePath = ""
 } = {}) {
   const toggle = new FakeElement();
   const search = new FakeElement();
   const breadcrumbCurrent = new FakeElement();
   const breadcrumbGenre = new FakeElement();
+  breadcrumbGenre.setAttribute("href", `${basePath}/?category=${genre}`);
   const breadcrumbHome = new FakeElement();
   const breadcrumbNav = new FakeElement();
   const searchLabel = new FakeElement();
@@ -154,6 +162,7 @@ function loadToggle({
 
   const initialUrl = new URL("https://example.test/recipes/butter-mochi/");
   if (urlLanguage) initialUrl.searchParams.set("lang", urlLanguage);
+  if (category) initialUrl.searchParams.set("category", category);
   const window = {
     history: {
       replaceState(_state, _title, url) {
@@ -287,4 +296,34 @@ test("continues to work when browser storage is unavailable", () => {
   page.toggle.click();
   assert.equal(page.document.documentElement.lang, "en");
   assert.equal(new URL(page.window.location.href).searchParams.get("lang"), "en");
+});
+
+test("category breadcrumb preserves the project path and current language", () => {
+  const page = loadToggle({ savedLanguage: "ja", genre: "dessert", basePath: "/recipe-book" });
+  const destination = new URL(page.breadcrumbGenre.getAttribute("href"));
+  assert.equal(destination.pathname, "/recipe-book/");
+  assert.equal(destination.searchParams.get("category"), "dessert");
+  assert.equal(destination.searchParams.get("lang"), "ja");
+  page.toggle.click();
+  assert.equal(new URL(page.breadcrumbGenre.getAttribute("href")).searchParams.get("lang"), "en");
+});
+
+test("category destination opens the matching homepage section in both languages", () => {
+  const page = loadToggle({
+    genre: "", category: "dessert", urlLanguage: "ja", storageThrows: true,
+    enDetails: [false, false, false], jaDetails: [false, false, false]
+  });
+  assert.equal(page.document.documentElement.lang, "ja");
+  assert.deepEqual(page.en.details.map(details => details.open), [true, false, false]);
+  assert.deepEqual(page.ja.details.map(details => details.open), [true, false, false]);
+  page.toggle.click();
+  assert.equal(page.en.details[0].open, true);
+});
+
+test("unknown category parameters leave homepage sections closed", () => {
+  const page = loadToggle({
+    genre: "", category: 'unknown"]', enDetails: [false, false], jaDetails: [false, false]
+  });
+  assert.deepEqual(page.en.details.map(details => details.open), [false, false]);
+  assert.deepEqual(page.ja.details.map(details => details.open), [false, false]);
 });
