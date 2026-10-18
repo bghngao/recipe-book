@@ -110,10 +110,6 @@ ingredients_ja:
     </ol>
   </div>
 
-  <div class="container">
-    <h2>Notes</h2>
-    <p>The handwritten note gives 45 minutes for the newer pan; adjust baking time to the pan used.</p>
-  </div>
 </div>
 
 <div class="lang" data-lang="ja">
@@ -193,8 +189,4 @@ ingredients_ja:
     </ol>
   </div>
 
-  <div class="container">
-    <h2>メモ</h2>
-    <p>手書きメモでは新しい型の場合は45分。使う型に合わせて焼き時間を調整する。</p>
-  </div>
 </div>
