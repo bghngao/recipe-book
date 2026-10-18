@@ -12,7 +12,7 @@ title: Home
   {% for genre in genres %}
     {% assign recipes = site.recipes | where: "genre", genre | sort: "order" %}
     {% if recipes.size > 0 %}
-      <details class="container">
+      <details class="container" data-genre="{{ genre }}">
         <summary class="title-ingredient">
           {% case genre %}
             {% when "starters" %} 🥬 Starters
@@ -45,7 +45,7 @@ title: Home
   {% for genre in genres %}
     {% assign recipes = site.recipes | where: "genre", genre | sort: "order" %}
     {% if recipes.size > 0 %}
-      <details class="container">
+      <details class="container" data-genre="{{ genre }}">
         <summary class="title-ingredient">
           {% case genre %}
             {% when "starters" %} 🥬 前菜
