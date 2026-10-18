@@ -52,7 +52,7 @@
 
       <span class="breadcrumb-separator">&gt;</span>
 
-      <span class="breadcrumb-genre">
+      <a href="{{ '/' | relative_url }}?category={{ page.genre | uri_escape }}" class="breadcrumb-link breadcrumb-genre">
         {% case page.genre %}
           {% when "starters" %}Starters
           {% when "soup" %}Soup
@@ -61,7 +61,7 @@
           {% when "sauce" %}Sauces
           {% when "drink" %}Drinks
         {% endcase %}
-      </span>
+      </a>
 
       <span class="breadcrumb-separator">&gt;</span>
 
