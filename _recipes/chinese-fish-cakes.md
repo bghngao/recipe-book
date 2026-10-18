@@ -129,7 +129,7 @@ ingredients_ja:
 
   <div class="container">
     <h2 class="title-instruction">Note</h2>
-    <p><strong>Recommended White Fish:</strong> Sea bream (真鯛; spring), sea bass (スズキ; summer), flounder (カレイ; autumn), cod (真鱈; winter), or Alaska pollock (スケトウダラ; winter)</p>
+    <p>Recommended White Fish: Sea bream (真鯛; spring), sea bass (スズキ; summer), flounder (カレイ; autumn), cod (真鱈; winter), or Alaska pollock (スケトウダラ; winter)</p>
   </div>
 </div>
 
@@ -225,6 +225,6 @@ ingredients_ja:
 
   <div class="container">
     <h2 class="title-instruction">メモ</h2>
-    <p><strong>おすすめの白身魚：</strong>真鯛（春）、スズキ（夏）、カレイ（秋）、真鱈（冬）、スケトウダラ（冬）</p>
+    <p>おすすめの白身魚：真鯛（春）、スズキ（夏）、カレイ（秋）、真鱈（冬）、スケトウダラ（冬）</p>
   </div>
 </div>
