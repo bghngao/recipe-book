@@ -69,10 +69,6 @@ ingredients_ja:
     </ol>
   </div>
 
-  <div class="container">
-    <p><strong>Chef's tip:</strong> For the smoothest texture, use full-fat mascarpone and dairy cream rather than vegetable-based whipping cream. The low sugar content means this homemade ice cream will freeze fairly firm even with honey.</p>
-    <p><strong>Storage:</strong> Store airtight at −18°C, ideally enjoying it within 1–2 weeks for the best flavor and texture.</p>
-  </div>
 </div>
 
 <div class="lang" data-lang="ja">
@@ -121,8 +117,4 @@ ingredients_ja:
     </ol>
   </div>
 
-  <div class="container">
-    <p><strong>コツ：</strong> よりなめらかに仕上げるには、全脂肪のマスカルポーネと乳製品の生クリームを使い、植物性ホイップは避ける。糖分が少ないため、はちみつを使っても冷凍後はかなり固めになる。</p>
-    <p><strong>保存：</strong> −18℃で密閉保存し、風味と食感を楽しむため、できれば1〜2週間以内に食べる。</p>
-  </div>
 </div>
