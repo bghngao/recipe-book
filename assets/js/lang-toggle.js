@@ -133,6 +133,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const pageGenre = document.body.dataset.genre;
     if (genreEl && pageGenre && GENRE_LABELS[lang]?.[pageGenre]) {
       genreEl.textContent = GENRE_LABELS[lang][pageGenre];
+      const categoryUrl = new URL(genreEl.getAttribute("href"), window.location.href);
+      categoryUrl.searchParams.set("lang", lang);
+      genreEl.setAttribute("href", categoryUrl.toString());
     }
   };
 
@@ -225,6 +228,15 @@ document.addEventListener("DOMContentLoaded", () => {
      Init
      ========================================================= */
   applyLanguage(currentLang);
+
+  const requestedCategory = new URL(window.location.href).searchParams.get("category");
+  if (requestedCategory) {
+    langSections.forEach(section => {
+      section.querySelectorAll("details").forEach(details => {
+        if (details.dataset.genre === requestedCategory) details.open = true;
+      });
+    });
+  }
 
   /* =========================================================
      Events
