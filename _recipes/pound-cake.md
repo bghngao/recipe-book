@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Pound Cake
-title_en: Pound Cake
-title_ja: パウンドケーキ
+title: Pound Cake (Sara Lee Copycat)
+title_en: Pound Cake (Sara Lee Copycat)
+title_ja: パウンドケーキ（サラ・リー風）
 genre: dessert
 order: 3
 ingredients_en:
@@ -33,7 +33,7 @@ ingredients_ja:
 <!-- English -->
 <!-- ===================== -->
 <div class="lang" data-lang="en">
-  <h1 class="title-recipe">🍰 Pound Cake</h1>
+  <h1 class="title-recipe">🍰 Pound Cake (Sara Lee Copycat)</h1>
 
   <!-- Ingredients -->
   <div class="container">
@@ -107,7 +107,7 @@ ingredients_ja:
 <!-- Japanese -->
 <!-- ===================== -->
 <div class="lang" data-lang="ja">
-  <h1 class="title-recipe">🍰 パウンドケーキ</h1>
+  <h1 class="title-recipe">🍰 パウンドケーキ（サラ・リー風）</h1>
 
   <!-- 材料 -->
   <div class="container">
