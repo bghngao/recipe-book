@@ -89,9 +89,11 @@ ingredients_ja:
   </div>
 
   <div class="container">
-    <h2>Notes</h2>
-    <p>Omit the salt if the peanut butter is already salted.</p>
-    <p>If using unsweetened peanut butter, you can increase the sugar.</p>
+    <h2 class="title-instruction">Notes</h2>
+    <ol>
+      <li>Omit the salt if the peanut butter is already salted.</li>
+      <li>If using unsweetened peanut butter, you can increase the sugar.</li>
+    </ol>
   </div>
 </div>
 
@@ -157,8 +159,10 @@ ingredients_ja:
   </div>
 
   <div class="container">
-    <h2>メモ</h2>
-    <p>塩入りのピーナッツバターを使う場合、塩は不要。</p>
-    <p>無糖のピーナッツバターを使う場合、砂糖を増やしてもよい。</p>
+    <h2 class="title-instruction">メモ</h2>
+    <ol>
+      <li>塩入りのピーナッツバターを使う場合、塩は不要。</li>
+      <li>無糖のピーナッツバターを使う場合、砂糖を増やしてもよい。</li>
+    </ol>
   </div>
 </div>
