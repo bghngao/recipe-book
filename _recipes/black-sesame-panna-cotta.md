@@ -63,13 +63,13 @@ ingredients_ja:
   <div class="container">
     <h2 class="title-instruction">Instructions</h2>
     <ol>
-      <li>Prepare the gelatin according to the package instructions. If it requires blooming in cold milk, reserve the required amount from the measured 80mL of milk.</li>
-      <li>Combine the cream, milk (excluding any reserved for the gelatin), sugar, and salt in a saucepan.</li>
-      <li>Heat gently, stirring until the sugar dissolves and the mixture reaches about 80°C. Do not boil.</li>
-      <li>Remove from the heat. Add the prepared gelatin, including any milk used for blooming, and stir until completely dissolved.</li>
+      <li>Prepare the gelatin according to the package instructions.</li>
+      <li>Combine the cream, milk, sugar, and salt in a saucepan.</li>
+      <li>Warm over low heat, stirring gently until the sugar has dissolved and the mixture reaches about 80°C. Do not boil.</li>
+      <li>Remove the saucepan from the heat. Add the prepared gelatin and stir until completely dissolved.</li>
       <li>Stir in the ground black sesame and vanilla extract until evenly combined.</li>
-      <li>Pour into molds and let stand at room temperature for 5–10 minutes.</li>
-      <li>Refrigerate until set, about 4 hours.</li>
+      <li>Divide the mixture among molds and let cool at room temperature for 5–10 minutes.</li>
+      <li>Transfer the molds to the refrigerator and chill for about 4 hours, or until set.</li>
     </ol>
   </div>
 </div>
@@ -112,13 +112,13 @@ ingredients_ja:
   <div class="container">
     <h2 class="title-instruction">作り方</h2>
     <ol>
-      <li>ゼラチンはパッケージの表示に従って下準備する。冷たい牛乳でふやかす必要がある場合は、分量の牛乳80mLから必要量を取り分けて使う。</li>
-      <li>鍋に生クリーム、牛乳（ゼラチン用に取り分けた分を除く）、砂糖、塩を入れる。</li>
-      <li>混ぜながら弱火で温め、砂糖を溶かして約80°Cにする。沸騰させない。</li>
-      <li>火から下ろし、下準備したゼラチンを、ふやかすのに使った牛乳があれば一緒に加え、完全に溶けるまで混ぜる。</li>
+      <li>ゼラチンはパッケージの表示に従って下準備する。</li>
+      <li>鍋に生クリーム、牛乳、砂糖、塩を入れる。</li>
+      <li>弱火にかけ、優しく混ぜながら砂糖を溶かし、約80°Cまで温める。沸騰させない。</li>
+      <li>鍋を火から下ろす。下準備したゼラチンを加え、完全に溶けるまで混ぜる。</li>
       <li>黒すりごまとバニラエクストラクトを加え、均一になるまで混ぜる。</li>
-      <li>型に流し入れ、室温で5〜10分置く。</li>
-      <li>冷蔵庫で約4時間、固まるまで冷やす。</li>
+      <li>型に分けて流し入れ、室温で5〜10分冷ます。</li>
+      <li>型を冷蔵庫に移し、約4時間、固まるまで冷やす。</li>
     </ol>
   </div>
 </div>
